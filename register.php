@@ -32,6 +32,12 @@
         <label for="middlename">Middle Name:</label>
         <input type="text" id="middlename" name="middlename" required>
 
+        <label for="birthday">Birthday:</label>
+        <input type="date" name="birthday" required><br>
+
+        <label for="username">Username:</label>
+        <input type="text" name="username" required><br>
+
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
 
