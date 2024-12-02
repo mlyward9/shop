@@ -53,7 +53,7 @@ ob_start();
     <h1>Welcome, <?php echo $_SESSION['user_name']; ?>!</h1>
     
         <h2>Main Content</h2>
-        <p>This is the main content of your webpage. You can dynamically load content here.</p>
+        <p></p>
     </main>
     <footer>
         <p>&copy; <?php echo date("Y"); ?> Your Website. All rights reserved.</p>

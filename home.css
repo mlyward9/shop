@@ -10,6 +10,8 @@ body {
 
 /* Header */
 header {
+    padding-right: 800px; /* Adds space to the left, adjust the value as needed */
+
     background-color: #4CAF50; /* Green background */
     color: white;
     padding: 20px;
