@@ -1,47 +1,43 @@
 <?php
-// Include database connection
-require 'db.php';
+require 'db.php'; // Make sure to include your database connection
 
-// Check if form is submitted
+// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve and sanitize input data
-    $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
+    // Get the data from the form
     $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
-    $middlename = mysqli_real_escape_string($conn, $_POST['middlename']);
+    $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    $birthday = mysqli_real_escape_string($conn, $_POST['birthday']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $repassword = mysqli_real_escape_string($conn, $_POST['repassword']);
 
-    // Validate form data
+    // Check if passwords match
     if ($password !== $repassword) {
         echo "Passwords do not match!";
         exit();
     }
 
-    // Hash the password for security
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    // Hash the password
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    // Check if the email already exists
-    $checkEmailQuery = "SELECT * FROM users WHERE email = '$email'";
-    $result = $conn->query($checkEmailQuery);
+    // Check if the email or username already exists
+    $check_email_query = "SELECT * FROM users WHERE email = '$email' OR username = '$username'";
+    $result = $conn->query($check_email_query);
 
     if ($result->num_rows > 0) {
-        echo "Email already exists. Please use a different email.";
-        exit();
-    }
-
-    // Insert data into the users table
-    $insertQuery = "INSERT INTO users (lastname, firstname, middlename, email, password)
-                    VALUES ('$lastname', '$firstname', '$middlename', '$email', '$hashedPassword')";
-
-    if ($conn->query($insertQuery) === TRUE) {
-        echo "Registration successful!";
-        echo "<br><a href='login.php'>Go to Login</a>";
+        echo "Email or Username already exists!";
     } else {
-        echo "Error: " . $conn->error;
+        // Insert the new user into the database
+        $query = "INSERT INTO users (firstname, lastname, username, birthday, email, password) 
+                  VALUES ('$firstname', '$lastname', '$username', '$birthday', '$email', '$hashed_password')";
+
+        if ($conn->query($query) === TRUE) {
+            echo "Registration successful!";
+            // Optionally, redirect to login page or dashboard
+        } else {
+            echo "Error: " . $conn->error;
+        }
     }
 }
-
-// Close the database connection
-$conn->close();
 ?>
