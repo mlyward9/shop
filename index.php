@@ -37,8 +37,6 @@ ob_start();
             <li><a href="logout.php">Logout</a></li>
             <!-- If the user is logged in, show the Create Your Shop link -->
             <li><a href="create_shop.php">Create Your Shop</a></li>
-            <!-- If the user is logged in, show the Account Settings link -->
-            <li><a href="account_settings.php">Account Settings</a></li>
         <?php else: ?>
             <!-- If the user is not logged in, show the Login link -->
             <li><a href="login.php">Login</a></li>

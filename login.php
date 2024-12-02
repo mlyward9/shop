@@ -21,8 +21,8 @@
     </style>
 </head>
 <body>
-    <h1>Login</h1>
-    <form action="process_login.php" method="POST">
+<div class="container">
+<h1>Login</h1>    <form action="process_login.php" method="POST">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required>
 
@@ -54,99 +54,129 @@
 
 <style>
     /* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f9f9f9; /* Light background */
+    background-color: #f4f4f4;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
 }
 
-/* Container for the form */
-.login-container {
+/* Main container for the form */
+.container {
     background-color: #fff;
-    padding: 40px;
+    padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
-    text-align: center;
 }
 
-/* Header */
+/* Form Header */
 h1 {
-    font-size: 2rem;
+    font-size: 28px;
+    color: #333;
+    text-align: center;
     margin-bottom: 20px;
-    color: #FF6F61; /* Coral color */
 }
 
-/* Label and Input Styles */
+/* Form labels */
 label {
     display: block;
-    font-size: 1rem;
+    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: 600;
     color: #333;
-    margin-top: 15px;
 }
 
+/* Input fields */
 input {
     width: 100%;
     padding: 12px;
-    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    font-size: 16px;
+    outline: none;
     box-sizing: border-box;
-    font-size: 1rem;
+    transition: border-color 0.3s ease;
 }
 
 input:focus {
-    border-color: #FF6F61; /* Focused input color */
-    outline: none;
+    border-color: #4CAF50;
 }
 
-/* Reveal Password Button */
-.reveal-btn {
-    background-color: transparent;
-    border: none;
-    color: #FF6F61;
-    cursor: pointer;
-    font-size: 1rem;
-    text-decoration: underline;
-    margin-top: 10px;
-}
-
-/* Submit Button */
-.login-btn {
-    background-color: #FF6F61;
-    color: white;
-    padding: 12px 20px;
+/* Button styles */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: #fff;
+    font-size: 16px;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
-    width: 100%;
     cursor: pointer;
-    margin-top: 20px;
     transition: background-color 0.3s ease;
 }
 
-.login-btn:hover {
-    background-color: #FF4E39; /* Darker coral on hover */
+button:hover {
+    background-color: #45a049;
 }
 
-/* Sign-up Link */
-.signup-link {
-    margin-top: 15px;
-    font-size: 1rem;
+/* Reveal password button */
+button[type="button"] {
+    background-color: #f9f9f9;
+    color: #4CAF50;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.signup-link a {
-    color: #FF6F61;
+button[type="button"]:hover {
+    background-color: #e1e1e1;
+}
+
+/* Link for registration */
+p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+p a {
+    color: #4CAF50;
+    font-weight: 600;
     text-decoration: none;
 }
 
-.signup-link a:hover {
+p a:hover {
     text-decoration: underline;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    input {
+        padding: 10px;
+    }
+
+    button {
+        font-size: 14px;
+    }
 }
 
 </style>
