@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2024 at 01:56 PM
+-- Generation Time: Dec 02, 2024 at 03:05 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -24,6 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `shops`
+--
+
+CREATE TABLE `shops` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `shop_name` varchar(255) NOT NULL,
+  `shop_email` varchar(255) NOT NULL,
+  `shop_address` text NOT NULL,
+  `shop_phone` varchar(20) NOT NULL,
+  `profile_picture` varchar(255) DEFAULT NULL,
+  `identity_proof` varchar(255) DEFAULT NULL,
+  `business_license` varchar(255) DEFAULT NULL,
+  `sales_tax_registration` varchar(255) DEFAULT NULL,
+  `valid_id` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -34,19 +55,28 @@ CREATE TABLE `users` (
   `middlename` varchar(100) DEFAULT NULL,
   `email` varchar(150) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `username` varchar(255) NOT NULL,
+  `birthday` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `lastname`, `firstname`, `middlename`, `email`, `password`, `created_at`) VALUES
-(2, 'Maniego', 'Lyward', 'Coyoca', '123@gmail.com', '$2y$10$MORgr6WMj17cdOTH/OQ31uBYwaekS4fbgEksH1.3HnE0vkQNlKini', '2024-12-02 12:34:10');
+INSERT INTO `users` (`id`, `lastname`, `firstname`, `middlename`, `email`, `password`, `created_at`, `username`, `birthday`) VALUES
+(3, 'Maniego', 'Lyward', NULL, '123@gmail.com', '$2y$10$ubSKdFOeM.V.Ya0smYjKjumJVjXPNg.wIucbmcPPqRlElL6hSGLui', '2024-12-02 13:30:20', '123', '2024-12-02');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `shops`
+--
+ALTER TABLE `shops`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Indexes for table `users`
@@ -60,10 +90,26 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `shops`
+--
+ALTER TABLE `shops`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `shops`
+--
+ALTER TABLE `shops`
+  ADD CONSTRAINT `shops_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
