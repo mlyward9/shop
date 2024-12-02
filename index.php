@@ -9,9 +9,17 @@
 // Start the session
 session_start();
 
-
+require 'db.php';
 
 // User is logged in, show the account information
+// Fetch shop data from the database
+$query = "SELECT * FROM shops";
+$result = $conn->query($query);
+
+// Check if the query ran successfully
+if (!$result) {
+    die("Query failed: " . $conn->error);
+}
 
 ob_start();
 ?>
@@ -86,10 +94,38 @@ ob_start();
         <section class="shop" id="shop">
             <h1 class="shop-title">Shops</h1>
             <div class="shop-container">
-                <!-- Example shop items -->
-                <div class="shop-item">
+            <div class="shop-card-container">
+        <?php
+        // Check if the query returned any results
+        if ($result->num_rows > 0) {
+            // Loop through the results and display each shop in a card
+            while ($shop = $result->fetch_assoc()) {
+                $shop_name = $shop['shop_name'];
+                $shop_email = $shop['shop_email'];
+                $shop_address = $shop['shop_address'];
+                $shop_phone = $shop['shop_phone'];
+                $profile_picture = $shop['profile_picture'] ? $shop['profile_picture'] : 'default-image.jpg'; // Use a default image if none is uploaded
+                ?>
+                <div class="shop-card">
+                    <img src="<?php echo $profile_picture; ?>" alt="Shop Profile Picture">
+                    <h3><?php echo $shop_name; ?></h3>
+                    <p><?php echo $shop_address; ?></p>
+                    <div class="contact-info">
+                        <p>Email: <a href="mailto:<?php echo $shop_email; ?>"><?php echo $shop_email; ?></a></p>
+                        <p>Phone: <?php echo $shop_phone; ?></p>
+                    </div>
                 </div>
+                <?php
+            }
+        } else {
+            echo "<p>No shops found.</p>";
+        }
+        ?>
+    </div>
+                <!-- Example shop items -->
+               
             </div>
+            
         </section>
         
         <section class="reviews" id="reviews">
