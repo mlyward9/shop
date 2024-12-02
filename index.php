@@ -26,7 +26,7 @@ ob_start();
 </head>
 <body>
     <header>
-        <h1>Welcome to My Website</h1>
+        <h1>Welcome to Euthalia Fancies!</h1>
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
@@ -52,12 +52,50 @@ ob_start();
             echo "Welcome, " . $_SESSION['user_name'] . "!";
         } else {
             // Display only "Welcome" if no user is logged in
-            echo "Welcome!";
+            echo "";
         }
         ?>
     
-        <h2>Main Content</h2>
-        <p></p>
+        <h2></h2>
+
+
+        <main>
+        <section class="hero" id="home">
+            <img src="giphy.gif" alt="Animated background" class="backgroundgif">
+            <div class="hero-content">
+                <h1>Welcome to Euthalia Fancies!</h1>
+                <p>Make your experience special and memorable with beautiful flowers</p>
+            </div>
+        </section>
+        
+        <section class="about" id="about">
+            <div class="container">
+                <div class="about-text">
+                    <h2>About Us</h2>
+                    <p>Welcome to Euthalia Fancies! We specialize in providing the best flower arrangements for every occasion, from weddings to everyday bouquets. Our team is passionate about bringing beauty and joy through the language of flowers. With years of experience in the floral industry, we ensure that each arrangement is carefully curated with love and attention to detail.</p>
+                    <p>Our mission is to create memorable experiences for our customers by offering exceptional customer service. Whether you're celebrating a special event or just brightening someone's day, we’re here to help you express your emotions with flowers.</p>
+                </div>
+                <div class="about-image">
+                    <img src="euthaliaremove.png" alt="Flower Shop" class="about-img">
+                </div>
+            </div>
+        </section>
+        
+        <section class="shop" id="shop">
+            <h1 class="shop-title">Shops</h1>
+            <div class="shop-container">
+                <!-- Example shop items -->
+                <div class="shop-item">
+                </div>
+            </div>
+        </section>
+        
+        <section class="reviews" id="reviews">
+        <h1 class="shop-title">Explore Our Floral Shop</h1>
+                <div class="review">
+                </div>
+            </div>
+        </section>
     </main>
     <footer>
         <p>&copy; <?php echo date("Y"); ?> Your Website. All rights reserved.</p>
