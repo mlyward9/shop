@@ -5,125 +5,102 @@ body {
     padding: 0;
     line-height: 1.5;
     color: #333;
+    background-color: #f9f9f9;
 }
 
+/* Header */
 header {
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-}
-
-.navbar {
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-}
-
-.nav-links {
-    display: flex;
-    gap: 15px;
-    list-style: none;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #333;
-    padding: 5px 10px;
-}
-
-.nav-links a:hover {
-    background: #ff7f7f;
-    color: white;
-}
-
-.hero {
-    text-align: center;
-    background: url('flower.gif') center/cover no-repeat;
-    padding: 100px 20px;
-    color: white;
-}
-
-.container {
-
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.about {
-    display: flex;
-    justify-content: space-between;
-    padding: 50px 0;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #333;
-    color: white;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}
-
-.nav-links {
-    padding-right: 950px; /* Adds space to the left, adjust the value as needed */
-    margin-top: 1px;    /* Adjust the top spacing as needed */
-
-    display: flex;
-    gap: 15px;
-    list-style: none;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #333;
-    padding: 5px 10px;
-}
-
-.nav-links a:hover {
-    background: #ff7f7f;
-    color: white;
-}
-header {
-    display: flex;               /* Flexbox for layout */
-    justify-content: space-between; /* Space between logo and nav */
-    align-items: center;         /* Center vertically */
-    height: 100px;               /* Adjust height for your header */
-    background-color: #f5f5f5;   /* Optional: Add a background color */
-    padding: 0 20px;             /* Add horizontal padding */
+    border-bottom: 3px solid #3e8e41; /* Slightly darker border */
 }
 
 header h1 {
-    margin: 0;                   /* Remove default margin */
-    font-size: 24px;             /* Adjust size as needed */
-    color: #333;                 /* Text color */
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-.nav-links {
-    display: flex;               /* Arrange navigation links in a row */
-    gap: 20px;                   /* Add spacing between links */
-    list-style: none;            /* Remove default bullets */
-    margin: 0;                   /* Reset margin */
+/* Navigation Menu */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
 }
 
-.nav-links a {
-    text-decoration: none;       /* Remove underline */
-    color: #333;                 /* Text color */
-    padding: 5px 10px;           /* Add padding around links */
-    transition: color 0.3s ease; /* Smooth hover effect */
+nav ul li {
+    margin: 0;
 }
 
-.nav-links a:hover {
-    color: #007BFF;              /* Change color on hover */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #3e8e41; /* Slightly darker hover color */
+}
+
+/* Main Content */
+main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+main h1 {
+    color: #4CAF50; /* Green color for the welcome message */
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+main h2 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+main p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+    margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    main {
+        padding: 20px;
+    }
 }
