@@ -9,12 +9,7 @@
 // Start the session
 session_start();
 
-// Check if the user is logged in
-if (!isset($_SESSION['user_id'])) {
-    // Redirect to login page if not logged in
-    header("Location: login.php");
-    exit();
-}
+
 
 // User is logged in, show the account information
 
@@ -50,7 +45,16 @@ ob_start();
         </nav>
     </header>
     <main>
-    <h1>Welcome, <?php echo $_SESSION['user_name']; ?>!</h1>
+    <?php 
+        // Check if the user is logged in
+        if (isset($_SESSION['user_name'])) {
+            // Display welcome message with user name if logged in
+            echo "Welcome, " . $_SESSION['user_name'] . "!";
+        } else {
+            // Display only "Welcome" if no user is logged in
+            echo "Welcome!";
+        }
+        ?>
     
         <h2>Main Content</h2>
         <p></p>
