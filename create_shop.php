@@ -84,6 +84,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($conn->query($insert_query) === TRUE) {
         echo "Shop created successfully!";
+        header("Location: index.php");
+        exit(); // Make sure to call exit to stop further script execution
     } else {
         echo "Error: " . $conn->error;
     }
