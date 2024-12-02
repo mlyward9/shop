@@ -153,3 +153,51 @@ footer {
     background-color: #333;
     color: white;
 }
+ /* Basic CSS for the cards */
+ .shop-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.shop-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.shop-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.shop-card h3 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+.shop-card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.shop-card .contact-info {
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.shop-card .contact-info a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.shop-card .contact-info a:hover {
+    text-decoration: underline;
+}
