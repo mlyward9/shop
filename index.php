@@ -69,7 +69,7 @@ ob_start();
         // Check if the user is logged in
         if (isset($_SESSION['user_name'])) {
             // Display welcome message with user name if logged in
-            echo "<span style='color: #f00352;font-weight: bold;font-size: 30px; '> " . $_SESSION['user_name'] . "!";
+            echo "<span style='color: #f00352;font-weight: bold;font-size: 25px; '> " . $_SESSION['user_name'] . "!";
         } else {
             // Display only "Welcome" if no user is logged in
             echo "";
