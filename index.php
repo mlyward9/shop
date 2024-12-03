@@ -93,37 +93,41 @@ ob_start();
 </section>
 
         
-<section class="shop" id="shop">
-    <h1 class="shop-title">Our Shops</h1>
-    <div class="shop-container">
-        <?php
-        // Check if the query returned any results
-        if ($result->num_rows > 0) {
-            // Loop through the results and display each shop in a card
-            while ($shop = $result->fetch_assoc()) {
-                $shop_name = $shop['shop_name'];
-                $shop_email = $shop['shop_email'];
-                $shop_address = $shop['shop_address'];
-                $shop_phone = $shop['shop_phone'];
-                $profile_picture = $shop['profile_picture'] ? $shop['profile_picture'] : 'default-image.jpg'; // Use a default image if none is uploaded
-                $owner_username = $shop['owner_username'];
-                ?>
-                <div class="shop-card">
-                    <img src="<?php echo $profile_picture; ?>" alt="Shop Profile Picture">
-                    <h3><?php echo $shop_name; ?></h3>
-                    <p>Owned by: <?php echo $owner_username; ?></p>
-                    <p><?php echo $shop_address; ?></p>
-                    <div class="contact-info">
-                        <p>Email: <a href="mailto:<?php echo $shop_email; ?>"><?php echo $shop_email; ?></a></p>
-                        <p>Phone: <?php echo $shop_phone; ?></p>
-                    </div>
-                </div>
-                <?php
-            }
-        } else {
-            echo "<p>No shops found.</p>";
-        }
+        <section class="shop" id="shop">
+            <h1 class="shop-title">Shops</h1>
+            <div class="shop-container">
+            <div class="shop-card-container">
+            <?php
+// Check if the query returned any results
+if ($result->num_rows > 0) {
+    // Loop through the results and display each shop in a card
+    while ($shop = $result->fetch_assoc()) {
+        $shop_id = $shop['id']; // Assuming the shop table has a primary key column named 'id'
+        $shop_name = $shop['shop_name'];
+        $shop_email = $shop['shop_email'];
+        $shop_address = $shop['shop_address'];
+        $shop_phone = $shop['shop_phone'];
+        $profile_picture = $shop['profile_picture'] ? $shop['profile_picture'] : 'default-image.jpg'; // Use a default image if none is uploaded
+        $owner_username = $shop['owner_username'];
         ?>
+        <div class="shop-card">
+            <img src="<?php echo $profile_picture; ?>" alt="Shop Profile Picture">
+            <h3><?php echo $shop_name; ?></h3>
+            <p>Owned by: <?php echo $owner_username; ?></p>
+            <p><?php echo $shop_address; ?></p>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:<?php echo $shop_email; ?>"><?php echo $shop_email; ?></a></p>
+                <p>Phone: <?php echo $shop_phone; ?></p>
+            </div>
+            <a href="view_shop.php?shop_id=<?php echo $shop_id; ?>" class="view-shop-link">View Shop</a>
+        </div>
+        <?php
+    }
+} else {
+    echo "<p>No shops found.</p>";
+}
+?>
+
     </div>
 </section>
 
