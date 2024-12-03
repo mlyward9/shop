@@ -34,7 +34,7 @@ ob_start();
 </head>
 <body>
     <header>
-        <h1>Welcome to Euthalia Fancies!</h1>
+        <h1></h1>
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
@@ -53,41 +53,42 @@ ob_start();
         </nav>
     </header>
     <main>
-    <?php 
-        // Check if the user is logged in
-        if (isset($_SESSION['user_name'])) {
-            // Display welcome message with user name if logged in
-            echo "Welcome, " . $_SESSION['user_name'] . "!";
-        } else {
-            // Display only "Welcome" if no user is logged in
-            echo "";
-        }
-        ?>
+
     
         <h2></h2>
 
 
         <main>
         <section class="hero" id="home">
-            <img src="giphy.gif" alt="Animated background" class="backgroundgif">
+            <img src="uploads/flower.gif" alt="Animated background" class="backgroundgif">
             <div class="hero-content">
                 <h1>Welcome to Euthalia Fancies!</h1>
+                <?php 
+        // Check if the user is logged in
+        if (isset($_SESSION['user_name'])) {
+            // Display welcome message with user name if logged in
+            echo "<span style='color: #f00352;font-weight: bold;font-size: 30px; '> " . $_SESSION['user_name'] . "!";
+        } else {
+            // Display only "Welcome" if no user is logged in
+            echo "";
+        }
+        ?>
                 <p>Make your experience special and memorable with beautiful flowers</p>
             </div>
         </section>
         
         <section class="about" id="about">
-            <div class="container">
-                <div class="about-text">
-                    <h2>About Us</h2>
-                    <p>Welcome to Euthalia Fancies! We specialize in providing the best flower arrangements for every occasion, from weddings to everyday bouquets. Our team is passionate about bringing beauty and joy through the language of flowers. With years of experience in the floral industry, we ensure that each arrangement is carefully curated with love and attention to detail.</p>
-                    <p>Our mission is to create memorable experiences for our customers by offering exceptional customer service. Whether you're celebrating a special event or just brightening someone's day, we’re here to help you express your emotions with flowers.</p>
-                </div>
-                <div class="about-image">
-                    <img src="euthaliaremove.png" alt="Flower Shop" class="about-img">
-                </div>
-            </div>
-        </section>
+    <div class="container">
+        <div class="about-text">
+            <h2>About Us</h2>
+            <p>Welcome to Euthalia Fancies We specialize in providing Best flowershop for every occasion, from weddings to everyday bouquets. Our team is passionate about bringing beauty and joy through the language of flowers. With years of experience in the floral industry, we ensure that each arrangement is carefully curated with love and attention to detail.</p>
+            <p>Our mission is to create memorable experiences for our customers by offering Best floweshops that gives exceptional customer service. Whether you're celebrating a special event or just brightening someone's day, we’re here to help you express your emotions with flowers.</p>
+        </div>
+        <div class="about-image">
+            <img src="uploads/674ede23610e3_468431191_1097752478817383_3456536416858257232_n.jpg" alt="Flower Shop">
+        </div>
+    </div>
+</section>
         
         <section class="shop" id="shop">
             <h1 class="shop-title">Shops</h1>
@@ -127,9 +128,10 @@ ob_start();
         </section>
         
         <section class="reviews" id="reviews">
-        <h1 class="shop-title">Explore Our Floral Shop</h1>
+        <h1 class="shop-title">Reviews</h1>
                 <div class="review">
                 </div>
+                <p>No reviews at the moment. Please check back later!</p>
             </div>
         </section>
     </main>
@@ -143,4 +145,6 @@ ob_start();
 // End output buffering and send output to browser
 ob_end_flush();
 ?>
-
+<style>
+    
+</style>

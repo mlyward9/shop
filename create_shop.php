@@ -217,7 +217,7 @@ input[type="file"] {
 button {
     width: 100%;
     padding: 12px;
-    background-color: #4CAF50;
+    background-color: #4a90e2;
     color: white;
     font-size: 16px;
     border: none;

@@ -63,6 +63,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<div class="container">
+        <!-- Logo Section -->
+        <div class="logo">
+        </div>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Account Settings</title>
@@ -121,3 +126,144 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
+<style>
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    color: #333;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    padding: 30px;
+    height: 100vh; /* Full viewport height */
+    flex-direction: column;
+}
+
+/* Container */
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 10px 0;
+    border: 1px solid #e0e0e0; /* Soft border around the container */
+}
+
+/* Header */
+h1, h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center; /* Center-align header */
+}
+
+/* Form Labels */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #555;
+}
+
+/* Input Fields */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #4CAF50;
+}
+
+/* Button Styles */
+button {
+    padding: 10px;
+    background-color:#007BFF;
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%; /* Full-width button */
+    text-transform: uppercase; /* Uppercase text for a modern look */
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: #4a90e2;
+}
+
+button[type="button"] {
+    background-color: #007BFF;
+    margin-top: 10px;
+}
+
+button[type="button"]:hover {
+    background-color: #007BFF;
+}
+
+/* Add a small gap between "Hide Password" and "Change Password" */
+button[type="submit"] {
+    margin-top: 15px; /* Add a little gap between the buttons */
+}
+
+
+/* Error Message Style */
+.error {
+    color: red;
+    font-size: 13px;
+    margin-top: -5px;
+    text-align: center;
+}
+
+/* Logo Section */
+.logo {
+    text-align: center;
+    margin-bottom: 15px; /* Reduced gap below logo */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    body {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .container {
+        width: 90%;
+        margin-right: 0;
+    }
+
+    h1, h2 {
+        font-size: 22px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}
+
+</style>
