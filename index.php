@@ -83,53 +83,50 @@ ob_start();
     <div class="container">
         <div class="about-text">
             <h2>About Us</h2>
-            <p>Welcome to Euthalia Fancies We specialize in providing Best flowershop for every occasion, from weddings to everyday bouquets. Our team is passionate about bringing beauty and joy through the language of flowers. With years of experience in the floral industry, we ensure that each arrangement is carefully curated with love and attention to detail.</p>
-            <p>Our mission is to create memorable experiences for our customers by offering Best floweshops that gives exceptional customer service. Whether you're celebrating a special event or just brightening someone's day, we’re here to help you express your emotions with flowers.</p>
+            <p>Welcome to Euthalia Fancies! We specialize in providing the best flowers for every occasion, from weddings to everyday bouquets. Our team is passionate about bringing beauty and joy through the language of flowers. With years of experience in the floral industry, we ensure that each arrangement is carefully curated with love and attention to detail.</p>
+            <p>Our mission is to create memorable experiences for our customers by offering exceptional flower shops and outstanding customer service. Whether you're celebrating a special event or just brightening someone's day, we’re here to help you express your emotions with flowers.</p>
         </div>
         <div class="about-image">
             <img src="uploads/674ede23610e3_468431191_1097752478817383_3456536416858257232_n.jpg" alt="Flower Shop">
         </div>
     </div>
 </section>
+
         
-        <section class="shop" id="shop">
-            <h1 class="shop-title">Shops</h1>
-            <div class="shop-container">
-            <div class="shop-card-container">
-            <?php
-    // Check if the query returned any results
-    if ($result->num_rows > 0) {
-        // Loop through the results and display each shop in a card
-        while ($shop = $result->fetch_assoc()) {
-            $shop_name = $shop['shop_name'];
-            $shop_email = $shop['shop_email'];
-            $shop_address = $shop['shop_address'];
-            $shop_phone = $shop['shop_phone'];
-            $profile_picture = $shop['profile_picture'] ? $shop['profile_picture'] : 'default-image.jpg'; // Use a default image if none is uploaded
-            $owner_username = $shop['owner_username'];
-            ?>
-            <div class="shop-card">
-                <img src="<?php echo $profile_picture; ?>" alt="Shop Profile Picture">
-                <h3><?php echo $shop_name; ?></h3>
-                <p>Owned by: <?php echo $owner_username; ?></p>
-                <p><?php echo $shop_address; ?></p>
-                <div class="contact-info">
-                    <p>Email: <a href="mailto:<?php echo $shop_email; ?>"><?php echo $shop_email; ?></a></p>
-                    <p>Phone: <?php echo $shop_phone; ?></p>
+<section class="shop" id="shop">
+    <h1 class="shop-title">Our Shops</h1>
+    <div class="shop-container">
+        <?php
+        // Check if the query returned any results
+        if ($result->num_rows > 0) {
+            // Loop through the results and display each shop in a card
+            while ($shop = $result->fetch_assoc()) {
+                $shop_name = $shop['shop_name'];
+                $shop_email = $shop['shop_email'];
+                $shop_address = $shop['shop_address'];
+                $shop_phone = $shop['shop_phone'];
+                $profile_picture = $shop['profile_picture'] ? $shop['profile_picture'] : 'default-image.jpg'; // Use a default image if none is uploaded
+                $owner_username = $shop['owner_username'];
+                ?>
+                <div class="shop-card">
+                    <img src="<?php echo $profile_picture; ?>" alt="Shop Profile Picture">
+                    <h3><?php echo $shop_name; ?></h3>
+                    <p>Owned by: <?php echo $owner_username; ?></p>
+                    <p><?php echo $shop_address; ?></p>
+                    <div class="contact-info">
+                        <p>Email: <a href="mailto:<?php echo $shop_email; ?>"><?php echo $shop_email; ?></a></p>
+                        <p>Phone: <?php echo $shop_phone; ?></p>
+                    </div>
                 </div>
-            </div>
-            <?php
+                <?php
+            }
+        } else {
+            echo "<p>No shops found.</p>";
         }
-    } else {
-        echo "<p>No shops found.</p>";
-    }
-    ?>
+        ?>
     </div>
-                <!-- Example shop items -->
-               
-            </div>
-            
-        </section>
+</section>
+
         
         <section class="reviews" id="reviews">
         <h1 class="shop-title">Reviews</h1>
