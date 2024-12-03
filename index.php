@@ -13,7 +13,9 @@ require 'db.php';
 
 // User is logged in, show the account information
 // Fetch shop data from the database
-$query = "SELECT * FROM shops";
+$query = "SELECT shops.*, users.username AS owner_username 
+          FROM shops 
+          JOIN users ON shops.user_id = users.id";
 $result = $conn->query($query);
 
 // Check if the query ran successfully
@@ -44,7 +46,7 @@ ob_start();
             <!-- If the user is logged in, show the Logout link -->
             <li><a href="logout.php">Logout</a></li>
             <!-- If the user is logged in, show the Create Your Shop link -->
-            <li><a href="create_shop.php">Create Your Shop</a></li>
+            <li><a href="shop.php">Your Shop</a></li>
         <?php else: ?>
             <!-- If the user is not logged in, show the Login link -->
             <li><a href="login.php">Login</a></li>
@@ -94,32 +96,34 @@ ob_start();
             <h1 class="shop-title">Shops</h1>
             <div class="shop-container">
             <div class="shop-card-container">
-        <?php
-        // Check if the query returned any results
-        if ($result->num_rows > 0) {
-            // Loop through the results and display each shop in a card
-            while ($shop = $result->fetch_assoc()) {
-                $shop_name = $shop['shop_name'];
-                $shop_email = $shop['shop_email'];
-                $shop_address = $shop['shop_address'];
-                $shop_phone = $shop['shop_phone'];
-                $profile_picture = $shop['profile_picture'] ? $shop['profile_picture'] : 'default-image.jpg'; // Use a default image if none is uploaded
-                ?>
-                <div class="shop-card">
-                    <img src="<?php echo $profile_picture; ?>" alt="Shop Profile Picture">
-                    <h3><?php echo $shop_name; ?></h3>
-                    <p><?php echo $shop_address; ?></p>
-                    <div class="contact-info">
-                        <p>Email: <a href="mailto:<?php echo $shop_email; ?>"><?php echo $shop_email; ?></a></p>
-                        <p>Phone: <?php echo $shop_phone; ?></p>
-                    </div>
+            <?php
+    // Check if the query returned any results
+    if ($result->num_rows > 0) {
+        // Loop through the results and display each shop in a card
+        while ($shop = $result->fetch_assoc()) {
+            $shop_name = $shop['shop_name'];
+            $shop_email = $shop['shop_email'];
+            $shop_address = $shop['shop_address'];
+            $shop_phone = $shop['shop_phone'];
+            $profile_picture = $shop['profile_picture'] ? $shop['profile_picture'] : 'default-image.jpg'; // Use a default image if none is uploaded
+            $owner_username = $shop['owner_username'];
+            ?>
+            <div class="shop-card">
+                <img src="<?php echo $profile_picture; ?>" alt="Shop Profile Picture">
+                <h3><?php echo $shop_name; ?></h3>
+                <p>Owned by: <?php echo $owner_username; ?></p>
+                <p><?php echo $shop_address; ?></p>
+                <div class="contact-info">
+                    <p>Email: <a href="mailto:<?php echo $shop_email; ?>"><?php echo $shop_email; ?></a></p>
+                    <p>Phone: <?php echo $shop_phone; ?></p>
                 </div>
-                <?php
-            }
-        } else {
-            echo "<p>No shops found.</p>";
+            </div>
+            <?php
         }
-        ?>
+    } else {
+        echo "<p>No shops found.</p>";
+    }
+    ?>
     </div>
                 <!-- Example shop items -->
                
