@@ -62,7 +62,7 @@ ob_start();
 
         <main>
         <section class="hero" id="home">
-            <img src="uploads/flower.gif" alt="Animated background" class="backgroundgif">
+            <img src="uploads/674dcbcb258d1_euthaliaremove.png" alt="Animated background" class="backgroundgif">
             <div class="hero-content">
                 <h1>Welcome to Euthalia Fancies!</h1>
                 <?php 

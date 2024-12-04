@@ -40,45 +40,6 @@ $product_result = $stmt->get_result();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Shop</title>
-    <style>
-        .shop-container, .products-container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            background-color: #f9f9f9;
-        }
-
-        .shop-container h1, .products-container h2 {
-            text-align: center;
-        }
-
-        .product-card {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 10px;
-            background-color: #fff;
-        }
-
-        .product-card img {
-            max-width: 100px;
-            max-height: 100px;
-            margin-right: 20px;
-            border-radius: 5px;
-        }
-
-        .product-details {
-            flex-grow: 1;
-        }
-
-        .product-details h3 {
-            margin: 0 0 10px 0;
-        }
-    </style>
 </head>
 <body>
 
@@ -110,3 +71,187 @@ $product_result = $stmt->get_result();
 
 </body>
 </html>
+<style>
+/* Global Styles */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f6f6f6;
+}
+
+/* Shop Header */
+.shop-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.shop-container h1 {
+    font-size: 2.8rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.shop-container p {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    line-height: 1.6;
+    text-align: center;
+    margin: 8px 0;
+}
+
+.shop-container a {
+    color: #f39c12;
+    text-decoration: none;
+}
+
+.shop-container a:hover {
+    text-decoration: underline;
+}
+
+/* Product Section */
+.products-container {
+    margin-top: 40px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.products-container h2 {
+    font-size: 2.2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 40px;
+    text-transform: capitalize;
+}
+
+/* Product Card */
+.product-card {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+    width: 180px; /* Larger image size */
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+    border: 3px solid #f39c12;
+}
+
+.product-details {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.product-details h3 {
+    font-size: 1.6rem;
+    color: #333;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.product-details p {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.product-details p strong {
+    color: #f39c12;
+    font-weight: bold;
+}
+
+/* Price Styling */
+.product-details .price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+/* Button Style */
+.view-shop-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #f39c12;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.view-shop-link:hover {
+    background-color: #e67e22;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .shop-container {
+        padding: 15px;
+    }
+
+    .product-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .product-card img {
+        margin-bottom: 20px;
+    }
+
+    .product-details h3 {
+        font-size: 1.4rem;
+    }
+
+    .product-details p {
+        font-size: 0.9rem;
+    }
+
+    .product-details .price {
+        font-size: 1rem;
+    }
+
+    .view-shop-link {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .shop-container h1 {
+        font-size: 2rem;
+    }
+
+    .products-container h2 {
+        font-size: 1.6rem;
+    }
+
+    .view-shop-link {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+
+</style>
