@@ -38,20 +38,62 @@ ob_start();
     <header>
         <h1></h1>
         <nav>
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="about.php">About</a></li>
-                <li><a href="contact.php">Contact</a></li>
-                <?php if (isset($_SESSION['user_id'])): ?>
-            <!-- If the user is logged in, show the Logout link -->
-            <li><a href="logout.php">Logout</a></li>
-            <!-- If the user is logged in, show the Create Your Shop link -->
-            <li><a href="shop.php">Your Shop</a></li>
-        <?php else: ?>
-            <!-- If the user is not logged in, show the Login link -->
-            <li><a href="login.php">Login</a></li>
-        <?php endif; ?>
-            </ul>
+        <ul> 
+            <li><a href="index.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li><a href="contact.php">Contact</a></li>
+            <?php if (isset($_SESSION['user_id'])): ?>
+        <!-- If the user is logged in, show the My Account dropdown -->
+        <li><a href="logout.php">Logout</a></li>
+        <li><a href="shop.php">Your Shop</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">My Account</a>
+            <div class="dropdown-content">
+                <a href="account_settings.php">Account Settings</a>
+                <a href="my_purchases.php">My Purchases</a>
+            </div>
+        </li>
+    <?php else: ?>
+        <!-- If the user is not logged in, show the Login link -->
+        <li><a href="login.php">Login</a></li>
+    <?php endif; ?>
+    <li><a href="view_cart.php">Cart</a></li>
+</ul>
+
+<style>
+/* Dropdown Container */
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #f00352;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+</style>
         </nav>
     </header>
     <main>
