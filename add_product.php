@@ -132,6 +132,141 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         .error-message {
             color: red;
         }
+        /* General Page Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+}
+
+/* Form Container */
+/* Form Container */
+.form-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    background-image: url('path_to_your_gif.gif'); /* Add the path to your GIF here */
+    background-size: cover; /* Ensures the GIF covers the entire container */
+    background-position: center; /* Centers the GIF */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Form Heading */
+.form-container h2 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Success and Error Messages */
+.success-message, .error-message {
+    text-align: center;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.success-message {
+    color: green;
+}
+
+.error-message {
+    color: red;
+}
+
+/* Form Labels */
+.form-container label {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #555;
+}
+
+/* Form Inputs */
+.form-container input, 
+.form-container select, 
+.form-container textarea {
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    width: 100%;
+}
+
+.form-container input:focus, 
+.form-container select:focus, 
+.form-container textarea:focus {
+    border-color: #cc889f;
+    background-color: #fff;
+    outline: none;
+}
+
+/* Button Styling */
+.form-container button {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #cc889f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #d98fa7;
+}
+
+/* Select Shop Dropdown */
+.form-container select {
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+
+/* File Input */
+.form-container input[type="file"] {
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Textarea */
+.form-container textarea {
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    resize: vertical;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .form-container h2 {
+        font-size: 1.5rem;
+    }
+}
+
     </style>
 </head>
 <body>

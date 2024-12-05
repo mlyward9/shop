@@ -64,7 +64,9 @@ $total = 0; // Variable to calculate total price
                 $total += $item['price'] * $item['quantity'];
             ?>
         <?php endwhile; ?>
-    </div>
+    </div>   
+     <a href="index.php" class="Back">Back to Home</a>
+
     <div class="cart-total">
         <h3>Total: $<?php echo number_format($total, 2); ?></h3>
         <!-- Checkout button -->
@@ -78,3 +80,140 @@ $total = 0; // Variable to calculate total price
 
 </body>
 </html>
+<style>    /* Center the container */
+.back-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+/* Style the back button */
+.Back {
+    background-color: #f8d7e0; /* Light pink background */
+    color: #333; /* Dark text for contrast */
+    text-decoration: none; /* Remove underline */
+    padding: 12px 24px; /* Padding for the button */
+    font-size: 1.1rem; /* Slightly larger text */
+    border-radius: 8px; /* Rounded corners */
+    font-weight: 500; /* Medium font weight */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Hover effect */
+.Back:hover {
+    background-color: #f5c6d8; /* Slightly darker pink on hover */
+    transform: scale(1.05); /* Subtle zoom effect */
+}
+    body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #444;
+    margin: 20px 0;
+}
+
+.cart-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cart-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.cart-item img {
+    width: 100%;
+    height: 350px;
+    object-fit: ;
+}
+
+.item-details {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-details h3 {
+    font-size: 18px;
+    color: #444;
+}
+
+.item-details p {
+    font-size: 14px;
+    color: #666;
+}
+
+.item-details form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.item-details input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #dda2b4cc;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #bf8097;
+}
+
+.cart-total {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.cart-total h3 {
+    font-size: 20px;
+    color: #444;
+}
+
+.cart-total form {
+    margin-top: 15px;
+}
+
+.cart-total button {
+    font-size: 16px;
+    padding: 12px 20px;
+    background-color: #dda2b4cc;
+}
+
+.cart-total button:hover {
+    background-color: #bf8097;
+}
+
+</style>

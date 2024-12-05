@@ -127,7 +127,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 </html>
 <style>
-    /* General Styles */
+/* General Styles */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f7fc;
@@ -193,7 +193,7 @@ form input:focus {
 /* Button Styles */
 button {
     padding: 12px 20px;
-    background-color: #5a67d8;
+    background-color: #cc889f;
     color: white;
     border: none;
     border-radius: 5px;
@@ -204,18 +204,19 @@ button {
 }
 
 button:hover {
-    background-color: #4c51bf;
+    background-color: #cc889f;
 }
 
 /* Password Visibility Toggle Button */
 button[type="button"] {
-    background-color: #ddd;
-    margin-top: 10px;
+    background-color: #cc889f;
+    margin-top: 20px;  /* Add a gap above the button */
     width: auto;
+    display: inline-block;  /* Keep it inline with the other buttons */
 }
 
 button[type="button"]:hover {
-    background-color: #ccc;
+    background-color:  #cc889f;
 }
 
 /* Spacing Between Forms */

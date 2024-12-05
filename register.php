@@ -130,7 +130,7 @@ input {
 }
 
 input:focus {
-    border-color: #007bff; /* Professional blue color for focus */
+    border-color: #dda2b4cc; /* Professional blue color for focus */
     background-color: #fff;
 }
 
@@ -142,7 +142,7 @@ input[type="date"] {
 button {
     padding: 12px;
     width: 100%;
-    background-color: #007bff; /* Professional blue */
+    background-color: #dda2b4cc; /* Professional blue */
     color: white;
     font-size: 16px;
     font-weight: 600;
@@ -158,12 +158,12 @@ button:hover {
 }
 
 button[type="button"] {
-    background-color: #007bff; /* Professional blue */
+    background-color: #dda2b4cc; /* Professional blue */
     margin-top: 10px;
 }
 
 button[type="button"]:hover {
-    background-color: #0056b3; /* Darker blue for hover effect */
+    background-color: #dda2b4cc; /* Darker blue for hover effect */
 }
 
 /* Logo Section */

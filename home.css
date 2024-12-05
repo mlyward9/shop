@@ -9,7 +9,7 @@ body {
 }
 
 a {
-    color: #f00352;
+    color: #614a4a;;
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -47,13 +47,14 @@ nav ul li a {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(180deg, rgba(240, 3, 82, 0.8), rgba(255, 255, 255, 0.8)), url('uploads/flower.gif') no-repeat center/cover;
-    color: white;
+    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), url('uploads/5356.gif_wh300.gif') no-repeat center/cover;
+    color: #614a4a;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 20px;
+    padding: 30px;
+    
 }
 
 .hero h1 {
@@ -67,8 +68,8 @@ nav ul li a {
 }
 
 .hero a {
-    background-color: #f00352;
-    color: white;
+    background-color:#dda2b4cc;
+    color: rgb(97, 74, 74);
     padding: 10px 20px;
     border-radius: 25px;
     font-weight: bold;
@@ -77,7 +78,7 @@ nav ul li a {
 }
 
 .hero a:hover {
-    background-color: #900021;
+    background-color: #614a4a;
 }
 
 /* Shop Section Styling */
@@ -133,7 +134,7 @@ nav ul li a {
     font-size: 1.1rem;
     font-weight: 600;
     color: #ffffff;
-    background-color: #f00352;
+    background-color: #dda2b4cc;
     text-transform: uppercase;
     text-decoration: none;
     padding: 0.75rem 1.5rem;
@@ -143,7 +144,7 @@ nav ul li a {
 }
 
 .shop-item a:hover {
-    background-color: #900021;
+    background-color:#614a4a;
     box-shadow: 0 6px 12px rgba(144, 0, 33, 0.4);
 }
 
@@ -209,13 +210,13 @@ footer {
 .about-text h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: #333;
+    color: black;
 }
 
 .about-text p {
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #555;
+    color: black;
 }
 
 .about-image {
@@ -287,7 +288,7 @@ footer {
 
 .shop-card h3 {
     font-size: 1.5rem;
-    color: #f00352;
+    color: #614a4a;;
     margin-bottom: 0.5rem;
 }
 
@@ -298,7 +299,7 @@ footer {
 }
 
 .shop-card .contact-info a {
-    color: #f00352;
+    color: #cc889f;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
@@ -348,7 +349,7 @@ footer {
 
 .review-card h3 {
     font-size: 1.5rem;
-    color: #f00352;
+    color: #dda2b4cc;
     margin-bottom: 0.5rem;
 }
 
@@ -370,6 +371,39 @@ footer {
         padding: 0 1rem;
     }
 }
+/* Design for View Shop Link */
+.view-shop-link {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: transparent; /* Transparent background */
+    color: #614a4a; /* Use the provided color */
+    border: 2px solid #614a4a; /* Border matching the text color */
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 30px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transition for hover and focus effects */
+}
+
+/* Hover Effect */
+.view-shop-link:hover {
+    background-color: #614a4a; /* Background color changes to match the text */
+    color: #fff; /* Text turns white on hover */
+    transform: translateY(-3px); /* Slight lift effect */
+}
+
+/* Active State (when clicked) */
+.view-shop-link:active {
+    background-color: #4a3535; /* Darker shade for active state */
+    transform: translateY(1px); /* Button sinks down slightly when clicked */
+}
+
+/* Focus State */
+.view-shop-link:focus {
+    outline: 3px solid #f39c12; /* Yellow outline on focus */
+    outline-offset: 3px;
+}
 
 /* Dropdown Container */
 .dropdown {
@@ -388,7 +422,7 @@ footer {
 }
 
 .dropdown-content a {
-    color: #f00352;
+    color: #dda2b4cc;
     padding: 12px 16px;
     text-decoration: none;
     display: block;

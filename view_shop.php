@@ -51,13 +51,23 @@ $product_result = $stmt->get_result();
     <p><strong>Email:</strong> <a href="mailto:<?php echo $shop['shop_email']; ?>"><?php echo $shop['shop_email']; ?></a></p>
     <p><strong>Phone:</strong> <?php echo $shop['shop_phone']; ?></p>
 </div>
+<a href="index.php" class="Back">Back to Home</a>
+
 
 <div class="products-container">
     <h2>Products</h2>
     <?php if ($product_result->num_rows > 0): ?>
         <?php while ($product = $product_result->fetch_assoc()): ?>
             <div class="product-card">
-                <img src="<?php echo $product['product_image']; ?>" alt="Product Image">
+            <img src="<?php echo $product['product_image']; ?>" alt="Product Image" style="
+    width: 90%;
+    max-width: 300px; /* Set the maximum width of the image */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto; /* Center the image */
+    border-radius: 8px; /* Optional: add rounded corners */
+    box-shadow: #cc889f;; /* Optional: add a subtle shadow */
+">
                 <div class="product-details">
                     <h3><?php echo $product['product_name']; ?></h3>
                     <p><?php echo $product['product_description']; ?></p>
@@ -78,3 +88,32 @@ $product_result = $stmt->get_result();
 
 </body>
 </html>
+<style>
+        /* Center the container */
+.back-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Style the back button */
+.Back {
+    display: inline-block;
+    background-color: #f8d7e0; /* Light pink background */
+    color: #333; /* Dark text for contrast */
+    text-decoration: none; /* Remove underline */
+    padding: 12px 24px; /* Padding for the button */
+    font-size: 1.1rem; /* Slightly larger text */
+    border-radius: 8px; /* Rounded corners */
+    font-weight: 500; /* Medium font weight */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-left: 900;
+}
+
+/* Hover effect */
+.Back:hover {
+    background-color: #f5c6d8; /* Slightly darker pink on hover */
+    transform: scale(1.05); /* Subtle zoom effect */
+}
+</style>

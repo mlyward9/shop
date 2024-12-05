@@ -78,3 +78,117 @@ if ($shops_result->num_rows > 0): ?>
 <?php else: ?>
     <p>You do not own any shops.</p>
 <?php endif; ?>
+<style>
+    /* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #555;
+}
+
+h1 {
+    margin: 20px 0;
+    font-size: 28px;
+}
+
+h2 {
+    margin: 15px 0;
+    font-size: 24px;
+    color: #444;
+}
+
+h3 {
+    font-size: 20px;
+    color: #666;
+    margin-top: 30px;
+}
+
+/* Shop Section */
+.shop-section {
+    background: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    max-width: 800px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.shop-section p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    color: #555;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+td {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Order ID Link */
+table a {
+    color: #dda2b4cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+table a:hover {
+    text-decoration: underline;
+}
+
+/* No Orders Message */
+.shop-section p.no-orders {
+    text-align: center;
+    color: #777;
+    margin: 20px 0;
+    font-size: 16px;
+}
+
+/* Buttons and Links */
+button, a.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #dda2b4cc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+button:hover, a.button-link:hover {
+    background-color: #bf8097;
+}
+
+</style>

@@ -42,6 +42,7 @@ ob_start();
             <li><a href="index.php">Home</a></li>
             <li><a href="about.php">About</a></li>
             <li><a href="contact.php">Contact</a></li>
+            <li><a href="map.php">Map</a></li>
             <?php if (isset($_SESSION['user_id'])): ?>
         <!-- If the user is logged in, show the My Account dropdown -->
         <li><a href="logout.php">Logout</a></li>
@@ -78,7 +79,7 @@ ob_start();
 }
 
 .dropdown-content a {
-    color: #f00352;
+    color: #614a4a;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -104,14 +105,14 @@ ob_start();
 
         <main>
         <section class="hero" id="home">
-            <img src="uploads/674dcbcb258d1_euthaliaremove.png" alt="Animated background" class="backgroundgif">
+            <img src="uploads/download-removebg-preview.png" alt="Animated background" class="backgroundgif">
             <div class="hero-content">
                 <h1>Welcome to Euthalia Fancies!</h1>
                 <?php 
         // Check if the user is logged in
         if (isset($_SESSION['user_name'])) {
             // Display welcome message with user name if logged in
-            echo "<span style='color: #f00352;font-weight: bold;font-size: 25px; '> " . $_SESSION['user_name'] . "!";
+            echo "<span style='color: #614a4a;;font-weight: bold;font-size: 25px; '> " . $_SESSION['user_name'] . "!";
         } else {
             // Display only "Welcome" if no user is logged in
             echo "";
@@ -129,7 +130,7 @@ ob_start();
             <p>Our mission is to create memorable experiences for our customers by offering exceptional flower shops and outstanding customer service. Whether you're celebrating a special event or just brightening someone's day, we’re here to help you express your emotions with flowers.</p>
         </div>
         <div class="about-image">
-            <img src="uploads/674ede23610e3_468431191_1097752478817383_3456536416858257232_n.jpg" alt="Flower Shop">
+            <img src="uploads/download.jpg" alt="Flower Shop">
         </div>
     </div>
 </section>

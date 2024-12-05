@@ -82,7 +82,7 @@ body {
 /* Form Header */
 h1 {
     font-size: 28px;
-    color: #4a90e2;
+    color: #cc889f;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -117,7 +117,7 @@ input:focus {
 button {
     width: 100%;
     padding: 12px;
-    background-color: #4a90e2;
+    background-color: #cc889f;
     color: #fff;
     font-size: 16px;
     border: none;
@@ -127,13 +127,13 @@ button {
 }
 
 button:hover {
-    background-color: #4a90e2;
+    background-color: #cc889f;
 }
 
 /* Reveal password button */
 button[type="button"] {
     background-color: #f9f9f9;
-    color: #4a90e2;
+    color: black;
     margin-top: 10px;
     cursor: pointer;
     transition: background-color 0.3s ease;

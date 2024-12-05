@@ -99,3 +99,145 @@ $total = 0; // Variable to calculate total price
 
 </body>
 </html>
+<style>
+    /* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #444;
+}
+
+h1 {
+    font-size: 28px;
+    margin: 20px 0;
+}
+
+h2 {
+    font-size: 24px;
+    margin: 15px 0;
+}
+
+h3 {
+    font-size: 20px;
+    margin: 20px 0 10px;
+    color: #666;
+}
+
+/* Cart Container */
+.cart-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+    display: flex;
+    margin-bottom: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-item img {
+    max-width: 300px;
+    max-height: 400px;
+    margin-right: 15px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.item-details h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #555;
+}
+
+.item-details p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Total Section */
+.cart-total {
+    text-align: center;
+    margin: 20px auto;
+    font-size: 20px;
+    font-weight: bold;
+    color: #444;
+}
+
+/* Form Section */
+form {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form h3 {
+    text-align: left;
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+form label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+form textarea {
+    resize: none;
+}
+
+form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #dda2b4cc;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #bf8097;
+}
+
+/* Empty Cart Message */
+p {
+    text-align: center;
+    font-size: 16px;
+    color: #777;
+    margin-top: 20px;
+}
+
+</style>

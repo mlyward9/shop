@@ -100,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Create Shop</title>
 </head>
 <div class="logo">
-            <img src="euthaliaremove.png" alt="Logo" class="logo-img">
+            <img src="uploads/download-removebg-preview.png" alt="Logo" class="logo-img">
         </div>
 <body>
     <h1></h1>
@@ -119,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="shop_phone">Shop Phone Number:</label>
         <input type="text" name="shop_phone" required><br><br>
 
-        <label for="profile_picture">Profile Picture:</label>
+        <label for="profile_picture">Logo Shop:</label>
         <input type="file" name="profile_picture" accept="image/*" required><br><br>
 
         <label for="identity_proof">Identity Proof:</label>
@@ -141,7 +141,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <style>
 
 .logo {
-    padding-right:500px; /* Adds space to the left, adjust the value as needed */
+    padding-right:60px; /* Adds space to the left, adjust the value as needed */
 }
     /* General Styles */
 * {
@@ -162,7 +162,7 @@ body {
 
 .container {
     background-color: #fff;
-    padding: 30px;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -189,7 +189,7 @@ label {
 input, textarea {
     width: 100%;
     padding: 12px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
@@ -217,7 +217,7 @@ input[type="file"] {
 button {
     width: 100%;
     padding: 12px;
-    background-color: #4a90e2;
+    background-color: #cc889f;
     color: white;
     font-size: 16px;
     border: none;
@@ -227,7 +227,7 @@ button {
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color:#cc889f;
 }
 
 /* Responsive Design */
