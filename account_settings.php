@@ -213,6 +213,7 @@ button[type="button"] {
     margin-top: 20px;  /* Add a gap above the button */
     width: auto;
     display: inline-block;  /* Keep it inline with the other buttons */
+    margin-bottom: 30px;
 }
 
 button[type="button"]:hover {

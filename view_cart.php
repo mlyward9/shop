@@ -27,6 +27,29 @@ $total = 0; // Variable to calculate total price
 
 <!DOCTYPE html>
 <html lang="en">
+
+<div class="main-nav">
+    <ul>
+        <li><a href="index.php" class="active">Home</a></li>
+        <li><a href="index.php">About</a></li>
+        <li><a href="index.php">Contact</a></li>
+        <li><a href="map.php">Map</a></li>
+        <?php if (isset($_SESSION['user_id'])): ?>
+            <li><a href="logout.php">Logout</a></li>
+            <li><a href="shop.php">Your Shop</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropbtn">My Account</a>
+                <div class="dropdown-content">
+                    <a href="account_settings.php">Account Settings</a>
+                    <a href="my_purchases.php">My Purchases</a>
+                </div>
+            </li>
+        <?php else: ?>
+            <li><a href="login.php">Login</a></li>
+        <?php endif; ?>
+        <li><a href="view_cart.php" class="cart-btn">Cart</a></li>
+    </ul>
+</div>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,6 +104,114 @@ $total = 0; // Variable to calculate total price
 </body>
 </html>
 <style>    /* Center the container */
+/* General Navigation Bar Styling */
+.main-nav {
+    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), 
+                url('uploads/5356.gif_wh300.gif') no-repeat center/cover; /* Add the GIF */
+    padding: 20px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px; /* Spacing between nav items */
+}
+
+.main-nav ul li {
+    display: inline-block;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: #614a4a; /* Match hero section text color */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px; /* Match hero button’s rounded edges */
+    text-transform: uppercase; /* Align text style with hero button */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.main-nav ul li a:hover {
+    color: white; /* Contrast for hover */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Active link styling */
+.main-nav ul li a.active {
+    color: #614a4a;
+    font-weight: bold;
+}
+
+/* Dropdown Menu Styling */
+.dropdown {
+    position: relative;
+}
+
+.dropdown .dropbtn {
+    color: #614a4a; /* Match text color with nav links */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-transform: uppercase; /* Match hero section text style */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.dropdown .dropbtn:hover {
+    background-color: #614a4a; /* Match hover effect */
+    color: white; /* Contrast for hover */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)); /* Match nav bar gradient */
+    border-radius: 25px; /* Rounded edges like hero button */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Depth effect */
+    z-index: 10;
+    min-width: 200px;
+    text-align: left;
+}
+
+.dropdown-content a {
+    color: #614a4a; /* Match nav text color */
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 25px; /* Match hero button’s shape */
+    text-transform: uppercase; /* Align text style */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #614a4a; /* Match hover effect */
+    color: white; /* Contrast for hover */
+}
+
+/* Show dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.main-nav ul li a.cart-btn:hover {
+    background-color: #614a4a; /* Match hover effect */
+    color: white; /* Contrast for hover */
+    transform: scale(1.1); /* Slight lift effect */
+}
+
 .back-button-container {
     display: flex;
     justify-content: center;
