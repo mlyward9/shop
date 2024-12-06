@@ -69,17 +69,25 @@ $product_result = $stmt->get_result();
     box-shadow: #cc889f;; /* Optional: add a subtle shadow */
 ">
                 <div class="product-details">
-                    <h3><?php echo $product['product_name']; ?></h3>
-                    <p><?php echo $product['product_description']; ?></p>
-                    <p><strong>Price:</strong> $<?php echo number_format($product['price'], 2); ?></p>
-                    <!-- Add to Cart Button -->
-                    <form action="add_to_cart.php" method="POST">
-                        <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
-                        <input type="hidden" name="shop_id" value="<?php echo $shop_id; ?>">
-                        <button type="submit">Add to Cart</button>
-                    </form>
-                </div>
-            </div>
+            <h3><?php echo $product['product_name']; ?></h3>
+            <p><?php echo $product['product_description']; ?></p>
+            <p><strong>Price:</strong> $<?php echo number_format($product['price'], 2); ?></p>
+            
+            <!-- Add to Cart Button -->
+            <form action="add_to_cart.php" method="POST">
+                <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                <input type="hidden" name="shop_id" value="<?php echo $shop_id; ?>">
+                <button type="submit">Add to Cart</button>
+            </form>
+
+            <!-- Buy Now Button -->
+            <form action="buy_now.php" method="POST">
+                <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                <input type="hidden" name="shop_id" value="<?php echo $shop_id; ?>">
+                <input type="hidden" name="quantity" value="1"> <!-- Default quantity for Buy Now -->
+                <button type="submit">Buy Now</button>
+            </form>
+        </div>
         <?php endwhile; ?>
     <?php else: ?>
         <p>No products found for this shop.</p>
