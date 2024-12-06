@@ -98,7 +98,6 @@ if (!isset($_SESSION['user_id'])) {
 <div class="main-content">
     <h1>Welcome to Shop Management</h1>
     <p>Select an option from the sidebar to manage your shop.</p>
-    <img src="uploads/download-removebg-preview.png" alt="Flower Shop">
 
 </div>
 

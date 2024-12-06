@@ -78,84 +78,91 @@ if ($shops_result->num_rows > 0): ?>
 <?php else: ?>
     <p>You do not own any shops.</p>
 <?php endif; ?>
+
 <style>
-    /* Global Styles */
+/* Global Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #f4f4f9;
     color: #333;
     line-height: 1.6;
 }
 
 h1, h2, h3 {
     text-align: center;
-    color: #555;
+    color: #2e3d49;
 }
 
 h1 {
+    font-size: 2.5rem;
     margin: 20px 0;
-    font-size: 28px;
+    color: #4a5568;
 }
 
 h2 {
+    font-size: 2rem;
     margin: 15px 0;
-    font-size: 24px;
-    color: #444;
+    color: #4a5568;
 }
 
 h3 {
-    font-size: 20px;
-    color: #666;
+    font-size: 1.5rem;
+    color: #6c757d;
     margin-top: 30px;
 }
 
 /* Shop Section */
 .shop-section {
     background: #fff;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    max-width: 800px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 1000px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .shop-section p {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: #5a5a5a;
+    margin-bottom: 15px;
 }
 
 /* Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 th, td {
-    text-align: left;
-    padding: 10px;
+    padding: 12px;
     border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;  /* Add a border to the left of each cell */
+}
+
+/* First column should not have left border */
+th:first-child, td:first-child {
+    border-left: none;  /* Remove the left border for the first column */
 }
 
 th {
-    background-color: #f2f2f2;
-    color: #555;
-    font-size: 14px;
+    background-color: #f7f7f7;
+    color: #5a5a5a;
+    font-size: 1rem;
+    text-align: left;
     text-transform: uppercase;
 }
 
 td {
-    font-size: 14px;
+    font-size: 1rem;
     color: #333;
 }
 
 /* Order ID Link */
 table a {
-    color: #dda2b4cc;
+    color: black;
     text-decoration: none;
     font-weight: bold;
 }
@@ -169,26 +176,59 @@ table a:hover {
     text-align: center;
     color: #777;
     margin: 20px 0;
-    font-size: 16px;
+    font-size: 1.1rem;
 }
 
 /* Buttons and Links */
 button, a.button-link {
     display: inline-block;
-    padding: 10px 20px;
-    font-size: 14px;
+    padding: 12px 24px;
+    font-size: 1rem;
     color: #fff;
-    background-color: #dda2b4cc;
+    background-color: #ff7b8c;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
     text-align: center;
     transition: background-color 0.3s ease;
+    margin: 15px 0;
 }
 
 button:hover, a.button-link:hover {
-    background-color: #bf8097;
+    background-color: #e55d6a;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .shop-section {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    table td, table th {
+        padding: 8px;
+    }
+
+    button, a.button-link {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
 }
 
 </style>
