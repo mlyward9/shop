@@ -18,72 +18,113 @@ a:hover {
     color: #900021;
 }
 
-/* Header */
-header {
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* General Navigation Bar Styling */
+.main-nav {
+    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), 
+                url('uploads/5356.gif_wh300.gif') no-repeat center/cover; /* Add the GIF */
+    padding: 20px 30px;
     position: sticky;
     top: 0;
     z-index: 1000;
-}
-
-nav ul {
     display: flex;
     justify-content: center;
-    list-style: none;
-    padding: 20px;
-    margin: 0;
-    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), url('uploads/5356.gif_wh300.gif') no-repeat center/cover;
-
-    
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    text-transform: uppercase;
-    font-weight: 600;
-}
-
-/* Hero Section */
-.hero {
-    height: 110vh;
-    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), url('uploads/5356.gif_wh300.gif') no-repeat center/cover;
-    color: #614a4a;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 30px;
-    
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-.hero h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px; /* Spacing between nav items */
 }
 
-.hero p {
-    font-size: 18px;
-    margin-bottom: 30px;
+.main-nav ul li {
+    display: inline-block;
 }
 
-.hero a {
-    background-color:#dda2b4cc;
-    color: rgb(97, 74, 74);
+.main-nav ul li a {
+    text-decoration: none;
+    color: #614a4a; /* Match hero section text color */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px; /* Match hero button’s rounded edges */
+    text-transform: uppercase; /* Align text style with hero button */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.main-nav ul li a:hover {
+    color: white; /* Contrast for hover */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Active link styling */
+.main-nav ul li a.active {
+    color: #614a4a;
+    font-weight: bold;
+}
+
+/* Dropdown Menu Styling */
+.dropdown {
+    position: relative;
+}
+
+.dropdown .dropbtn {
+    color: #614a4a; /* Match text color with nav links */
+    font-weight: bold;
     padding: 10px 20px;
     border-radius: 25px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: background-color 0.3s;
+    text-transform: uppercase; /* Match hero section text style */
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-.hero a:hover {
-    background-color: #614a4a;
+.dropdown .dropbtn:hover {
+    background-color: #614a4a; /* Match hover effect */
+    color: white; /* Contrast for hover */
+    transform: scale(1.1); /* Slight zoom effect */
 }
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)); /* Match nav bar gradient */
+    border-radius: 25px; /* Rounded edges like hero button */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Depth effect */
+    z-index: 10;
+    min-width: 200px;
+    text-align: left;
+}
+
+.dropdown-content a {
+    color: #614a4a; /* Match nav text color */
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 25px; /* Match hero button’s shape */
+    text-transform: uppercase; /* Align text style */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #614a4a; /* Match hover effect */
+    color: white; /* Contrast for hover */
+}
+
+/* Show dropdown content on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+.main-nav ul li a.cart-btn:hover {
+    background-color: #614a4a; /* Match hover effect */
+    color: white; /* Contrast for hover */
+    transform: scale(1.1); /* Slight lift effect */
+}
 /* Shop Section Styling */
 .shop-section {
     background-color: #ffffff;
