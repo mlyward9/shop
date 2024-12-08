@@ -1,3 +1,27 @@
+<li><a href="index.php">Home</a></li>
+<li><a href="aboutus.php">About Us</a></li>
+<li><a href="contactus.php">Contact</a></li>
+<li><a href="map.php">Map</a></li>
+
+<?php if (isset($_SESSION['user_id'])): ?>
+    <!-- If the user is logged in, show the My Account dropdown -->
+    <li><a href="logout.php">Logout</a></li>
+    <li><a href="shop.php">Your Shop</a></li>
+    <li class="dropdown">
+        <a href="#" class="dropbtn">My Account</a>
+        <div class="dropdown-content">
+            <a href="account_settings.php">Account Settings</a>
+            <a href="my_purchases.php">My Purchases</a>
+        </div>
+    </li>
+<?php else: ?>
+    <!-- If the user is not logged in, show the Login link -->
+    <li><a href="login.php">Login</a></li>
+<?php endif; ?>
+
+<li><a href="view_cart.php">Cart</a></li>
+</ul>
+
 <section class="about" id="about">
     <div class="container">
         <div class="about-text">
@@ -10,13 +34,32 @@
         </div>
     </div>
     <a href="index.php" class="Back">Back</a>
-
 </section>
 </body>
 </html>
 
 <style>
-        .Back {
+    nav ul {
+        height: 70px;  /* Adjust the height to 70px */
+        display: flex;
+        justify-content: center;  /* Centers the items horizontally */
+        align-items: center;  /* Centers the items vertically */
+        list-style: none;
+        margin: 0;
+        background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), url('uploads/5356.gif_wh300.gif') no-repeat center/cover;
+        margin-bottom: 10px;
+    }
+
+    nav ul li {
+        margin: 0 25px;  /* Increase the margin to add more space between items */
+    }
+
+    nav ul li a {
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+
+    .Back {
         display: inline-block;
         background-color: #f8c8dc; /* Light pink color */
         color: #fff; /* Text color */
@@ -34,65 +77,66 @@
         background-color: #f4a2c4; /* Darker pink for hover effect */
         transform: scale(1.05); /* Slight zoom on hover */
     }
+
     /* About Section Styling */
-.about {
-    background-color: #f4f4f4;
-    padding: 4rem 0;
-    text-align: center;
-}
-
-.about .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.about-text {
-    flex: 1;
-    margin-right: 2rem;
-    padding: 1rem;
-}
-
-.about-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: black;
-}
-
-.about-text p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: black;
-}
-
-.about-image {
-    flex: 1;
-    padding: 1rem;
-}
-
-.about-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 768px) {
-    .about .container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .about-text {
-        margin-right: 0;
+    .about {
+        background-color: #f4f4f4;
+        padding: 4rem 0;
         text-align: center;
     }
 
-    .about-image {
-        margin-top: 2rem;
+    .about .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
     }
-}
+
+    .about-text {
+        flex: 1;
+        margin-right: 2rem;
+        padding: 1rem;
+    }
+
+    .about-text h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: black;
+    }
+
+    .about-text p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: black;
+    }
+
+    .about-image {
+        flex: 1;
+        padding: 1rem;
+    }
+
+    .about-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+        .about .container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .about-text {
+            margin-right: 0;
+            text-align: center;
+        }
+
+        .about-image {
+            margin-top: 2rem;
+        }
+    }
 </style>

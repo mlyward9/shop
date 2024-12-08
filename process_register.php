@@ -1,10 +1,11 @@
 <?php
-require 'db.php'; // Make sure to include your database connection
+require 'db.php'; // Include your database connection
 
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the data from the form
     $firstname = mysqli_real_escape_string($conn, $_POST['firstname']);
+    $middlename = mysqli_real_escape_string($conn, $_POST['middlename']); // Add this
     $lastname = mysqli_real_escape_string($conn, $_POST['lastname']);
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $birthday = mysqli_real_escape_string($conn, $_POST['birthday']);
@@ -29,8 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Email or Username already exists!";
     } else {
         // Insert the new user into the database
-        $query = "INSERT INTO users (firstname, lastname, username, birthday, email, password) 
-                  VALUES ('$firstname', '$lastname', '$username', '$birthday', '$email', '$hashed_password')";
+        $query = "
+            INSERT INTO users (firstname, middlename, lastname, username, birthday, email, password) 
+            VALUES ('$firstname', '$middlename', '$lastname', '$username', '$birthday', '$email', '$hashed_password')";
 
         if ($conn->query($query) === TRUE) {
             echo "Registration successful!";

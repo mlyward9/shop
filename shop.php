@@ -83,15 +83,17 @@ if (!isset($_SESSION['user_id'])) {
     .Back {
             display: inline-block;
             background-color: ##614a4a;
-            color: #black;
+            color: #pink;
             text-decoration: none;
             padding: 10px 20px;
             border-radius: 5px;
             font-size: 16px;
             font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .Back:hover {
+            background-color: #f4a2c4;
             transform: scale(1.05);
         }
 </style>

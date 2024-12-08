@@ -36,7 +36,6 @@ ob_start();
 </head>
 <body>
     <header>
-        <h1></h1>
         <nav>
         <ul> 
         <li><a href="index.php">Home</a></li>
@@ -60,7 +59,6 @@ ob_start();
     <?php endif; ?>
     <li><a href="view_cart.php">Cart</a></li>
 </ul>
-
 <style>
 /* Dropdown Container */
 .dropdown {
@@ -98,11 +96,6 @@ ob_start();
         </nav>
     </header>
     <main>
-
-    
-        <h2></h2>
-
-
         <main>
         <section class="hero" id="home">
             <img src="uploads/download-removebg-preview.png" alt="Animated background" class="backgroundgif">

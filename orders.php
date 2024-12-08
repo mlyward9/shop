@@ -53,6 +53,7 @@ if ($shops_result->num_rows > 0): ?>
                         <th>Recipient</th>
                         <th>Address</th>
                         <th>Special Instructions</th>
+                        <th>Update Status</th>
                     </tr>
                     <?php while ($order = $orders_result->fetch_assoc()): ?>
                         <tr>
@@ -68,6 +69,24 @@ if ($shops_result->num_rows > 0): ?>
                                 ?>
                             </td>
                             <td><?php echo $order['special_instructions']; ?></td>
+                            <td>
+                                <!-- Form to update order status -->
+                                <form method="POST" action="update_order_status.php">
+                                    <input type="hidden" name="order_id" value="<?php echo $order['order_id']; ?>">
+                                    <select name="status">
+                                        <option value="Pending" <?php echo $order['status'] == 'Pending' ? 'selected' : ''; ?>>Pending</option>
+                                        <option value="Processing" <?php echo $order['status'] == 'Processing' ? 'selected' : ''; ?>>Processing</option>
+                                        <option value="Shipped" <?php echo $order['status'] == 'Shipped' ? 'selected' : ''; ?>>Shipped</option>
+                                        <option value="Out for Delivery" <?php echo $order['status'] == 'Out for Delivery' ? 'selected' : ''; ?>>Out for Delivery</option>
+                                        <option value="Delivered" <?php echo $order['status'] == 'Delivered' ? 'selected' : ''; ?>>Delivered</option>
+                                        <option value="Cancelled" <?php echo $order['status'] == 'Cancelled' ? 'selected' : ''; ?>>Cancelled</option>
+                                        <option value="On Hold" <?php echo $order['status'] == 'On Hold' ? 'selected' : ''; ?>>On Hold</option>
+                                        <option value="Returned" <?php echo $order['status'] == 'Returned' ? 'selected' : ''; ?>>Returned</option>
+                                        <option value="Refunded" <?php echo $order['status'] == 'Refunded' ? 'selected' : ''; ?>>Refunded</option>
+                                    </select>
+                                    <button type="submit">Update Status</button>
+                                </form>
+                            </td>
                         </tr>
                     <?php endwhile; ?>
                 </table>
