@@ -37,9 +37,10 @@ $order_count = $order_count_result->fetch_assoc()['total_orders'];
     <div class="sidebar">
         <h1>Welcome Admin <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
         <nav>
-            <a href="manage_users.php">Manage Users</a>
-            <a href="manage_orders.php">Manage Orders</a>
-            <a href="logout.php">Logout</a>
+        <a href="manage_users.php">Manage Users</a>
+        <a href="manage_orders.php">Manage Orders</a>
+        <a href="manage_products.php">Manage Products</a> <!-- New Manage Products link -->
+        <a href="logout.php">Logout</a>
         </nav>
     </div>
 
@@ -56,6 +57,7 @@ $order_count = $order_count_result->fetch_assoc()['total_orders'];
             <div class="stat-card">
             <h2>Total Orders</h2>
             <p><?php echo $order_count; ?></p>
+            
         </div>
         </div>
     </div>
