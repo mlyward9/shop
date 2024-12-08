@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($stmt->execute()) {
         echo "Review submitted successfully!";
         // Redirect back to the reviews page (optional)
-        header("Location: submit_review.php");  // Make sure to adjust the page name if needed
+        header("Location: index.php");  // Make sure to adjust the page name if needed
         exit;
     } else {
         echo "Error submitting review: " . $conn->error;

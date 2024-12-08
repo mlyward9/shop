@@ -31,8 +31,8 @@ $total = 0; // Variable to calculate total price
 <div class="main-nav">
     <ul>
         <li><a href="index.php" class="active">Home</a></li>
-        <li><a href="index.php">About</a></li>
-        <li><a href="index.php">Contact</a></li>
+        <li><a href="aboutus.php">About</a></li>
+        <li><a href="contactus.php">Contact</a></li>
         <li><a href="map.php">Map</a></li>
         <?php if (isset($_SESSION['user_id'])): ?>
             <li><a href="logout.php">Logout</a></li>

@@ -40,6 +40,7 @@ if ($shops_result->num_rows > 0): ?>
             $stmt_orders->bind_param('i', $shop['id']);
             $stmt_orders->execute();
             $orders_result = $stmt_orders->get_result();
+            
 
             if ($orders_result->num_rows > 0): ?>
                 <h3>Orders</h3>
@@ -73,6 +74,7 @@ if ($shops_result->num_rows > 0): ?>
             <?php else: ?>
                 <p>No orders found for this shop.</p>
             <?php endif; ?>
+            <a href="index.php" class="Back">Home</a>
         </div>
     <?php endwhile; ?>
 <?php else: ?>
@@ -80,6 +82,34 @@ if ($shops_result->num_rows > 0): ?>
 <?php endif; ?>
 
 <style>
+        /* Center the container */
+.back-button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Style the back button */
+.Back {
+    display: inline-block;
+    background-color: #f8d7e0; /* Light pink background */
+    color: #333; /* Dark text for contrast */
+    text-decoration: none; /* Remove underline */
+    padding: 12px 24px; /* Padding for the button */
+    font-size: 1.1rem; /* Slightly larger text */
+    border-radius: 8px; /* Rounded corners */
+    font-weight: 500; /* Medium font weight */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin-left: 900;
+}
+
+/* Hover effect */
+.Back:hover {
+    background-color: #f5c6d8; /* Slightly darker pink on hover */
+    transform: scale(1.05); /* Subtle zoom effect */
+}
+
 /* Global Styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

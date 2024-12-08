@@ -18,113 +18,72 @@ a:hover {
     color: #900021;
 }
 
-/* General Navigation Bar Styling */
-.main-nav {
-    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), 
-                url('uploads/5356.gif_wh300.gif') no-repeat center/cover; /* Add the GIF */
-    padding: 20px 30px;
+/* Header */
+header {
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
+}
+
+nav ul {
+    height: 70px;  /* Adjust the height to 70px */
     display: flex;
     justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
-
-.main-nav ul {
     list-style: none;
     margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 30px; /* Spacing between nav items */
+    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), url('uploads/5356.gif_wh300.gif') no-repeat center/cover;
 }
 
-.main-nav ul li {
-    display: inline-block;
+
+
+nav ul li {
+    margin: 0 15px;
 }
 
-.main-nav ul li a {
-    text-decoration: none;
-    color: #614a4a; /* Match hero section text color */
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 25px; /* Match hero button’s rounded edges */
-    text-transform: uppercase; /* Align text style with hero button */
-    transition: background-color 0.3s, transform 0.2s;
+nav ul li a {
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
-.main-nav ul li a:hover {
-    color: white; /* Contrast for hover */
-    transform: scale(1.1); /* Slight zoom effect */
-}
-
-/* Active link styling */
-.main-nav ul li a.active {
+/* Hero Section */
+.hero {
+    height: 80vh;
+    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), url('uploads/5356.gif_wh300.gif') no-repeat center/cover;
     color: #614a4a;
-    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    
 }
 
-/* Dropdown Menu Styling */
-.dropdown {
-    position: relative;
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
 }
 
-.dropdown .dropbtn {
-    color: #614a4a; /* Match text color with nav links */
-    font-weight: bold;
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.hero a {
+    background-color:#dda2b4cc;
+    color: rgb(97, 74, 74);
     padding: 10px 20px;
     border-radius: 25px;
-    text-transform: uppercase; /* Match hero section text style */
-    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
 }
 
-.dropdown .dropbtn:hover {
-    background-color: #614a4a; /* Match hover effect */
-    color: white; /* Contrast for hover */
-    transform: scale(1.1); /* Slight zoom effect */
+.hero a:hover {
+    background-color: #614a4a;
 }
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)); /* Match nav bar gradient */
-    border-radius: 25px; /* Rounded edges like hero button */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Depth effect */
-    z-index: 10;
-    min-width: 200px;
-    text-align: left;
-}
-
-.dropdown-content a {
-    color: #614a4a; /* Match nav text color */
-    padding: 10px 20px;
-    display: block;
-    text-decoration: none;
-    font-size: 1rem;
-    border-radius: 25px; /* Match hero button’s shape */
-    text-transform: uppercase; /* Align text style */
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.dropdown-content a:hover {
-    background-color: #614a4a; /* Match hover effect */
-    color: white; /* Contrast for hover */
-}
-
-/* Show dropdown content on hover */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-
-.main-nav ul li a.cart-btn:hover {
-    background-color: #614a4a; /* Match hover effect */
-    color: white; /* Contrast for hover */
-    transform: scale(1.1); /* Slight lift effect */
-}
 /* Shop Section Styling */
 .shop-section {
     background-color: #ffffff;

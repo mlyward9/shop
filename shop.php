@@ -80,6 +80,20 @@ if (!isset($_SESSION['user_id'])) {
     .main-content p {
         margin-top: 10px;
     }
+    .Back {
+            display: inline-block;
+            background-color: ##614a4a;
+            color: #black;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .Back:hover {
+            transform: scale(1.05);
+        }
 </style>
 
 
@@ -92,6 +106,8 @@ if (!isset($_SESSION['user_id'])) {
         <li><a href="create_shop.php">Create Your Shop</a></li>
         <li><a href="orders.php">Order list</a></li>
         <li><a href="add_product.php">Add Product</a></li>
+        <a href="index.php" class="Back">Back</a>
+
     </ul>
 </div>
 
