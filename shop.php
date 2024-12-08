@@ -103,15 +103,15 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 <body>
 
+<!-- Sidebar -->
 <div class="sidebar">
-    <ul>
-        <li><a href="create_shop.php">Create Your Shop</a></li>
-        <li><a href="orders.php">Order list</a></li>
-        <li><a href="add_product.php">Add Product</a></li>
-        <a href="index.php" class="Back">Back</a>
-
-    </ul>
-</div>
+        <ul>
+            <li><a href="create_shop.php">Create Your Shop</a></li>
+            <li><a href="orders.php">Order list</a></li>
+            <li><a href="add_product.php">Add Product</a></li>
+            <li><a href="user_product.php">User edit product</a></li>
+        </ul>
+    </div>
 
 <div class="main-content">
     <h1>Welcome to Shop Management</h1>
