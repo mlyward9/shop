@@ -1,47 +1,47 @@
 <?php
-// Include database connection
+session_start();
 require 'db.php';
 
-// Start session to store user login data
-session_start();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
 
-// Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Ensure that 'email' and 'password' are set
-    if (isset($_POST['email']) && isset($_POST['password'])) {
-        // Retrieve and sanitize input data
-        $email = mysqli_real_escape_string($conn, $_POST['email']);
-        $password = mysqli_real_escape_string($conn, $_POST['password']);
+    // Fetch user details
+    $query = "SELECT id, username, password, is_admin FROM users WHERE email = ?";
+    $stmt = $conn->prepare($query);
 
-        // Check if the email exists in the database
-        $query = "SELECT * FROM users WHERE email = '$email'";
-        $result = $conn->query($query);
+    if (!$stmt) {
+        die("SQL Error: " . $conn->error);
+    }
 
-        if ($result->num_rows > 0) {
-            // Fetch user data
-            $user = $result->fetch_assoc();
+    $stmt->bind_param('s', $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-            // Verify password
-            if (password_verify($password, $user['password'])) {
-                // Store user data in session
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['user_name'] = $user['firstname'] . ' ' . $user['lastname'];
-                $_SESSION['email'] = $user['email']; // Store email as well
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
 
-                // Redirect to index.php
-                header("Location: index.php");
-                exit();
+        // Verify password
+        if (password_verify($password, $user['password'])) {
+            // Set session variables
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['is_admin'] = $user['is_admin'];
+
+            // Redirect based on role
+            if ($user['is_admin'] == 1) {
+                header("Location: admin_homepage.php");
             } else {
-                echo "Incorrect password.";
+                header("Location: index.php");
             }
+            exit();
         } else {
-            echo "Email not found.";
+            echo "Invalid password.";
         }
     } else {
-        echo "Please enter both email and password.";
+        echo "User not found.";
     }
+} else {
+    echo "Invalid request method.";
 }
-
-// Close the database connection
-$conn->close();
 ?>
