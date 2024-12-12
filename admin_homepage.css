@@ -12,14 +12,13 @@ body {
     min-height: 100vh;
     background-color: #f4f4f9;
     color: #333;
-    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), url('uploads/5356.gif_wh300.gif');
     margin: 0;
 }
 
 /* Sidebar styling */
 .sidebar {
     width: 250px;
-    background-color: #333;
+    background-color: lightgrey;
     color: white;
     padding: 20px;
     position: fixed;
@@ -42,15 +41,10 @@ body {
     margin: 10px 0;
     padding: 10px;
     text-decoration: none;
-    background-color: lightsalmon;
     color: white;
     border-radius: 5px;
     font-size: 1.1em;
     width: 100%;
-}
-
-.sidebar nav a:hover {
-    background-color: #ff7f7f; /* Change on hover */
 }
 
 /* Main content area */
@@ -76,7 +70,6 @@ body {
     padding: 20px;
     text-align: center;
     width: 200px;
-    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), url('uploads/5356.gif_wh300.gif');
 
 }
 

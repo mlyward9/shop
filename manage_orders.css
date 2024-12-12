@@ -32,7 +32,7 @@ table th, table td {
 }
 
 table th {
-    background-color: lightpink;
+    background-color: lightgrey;
     color: white;
 }
 
@@ -54,7 +54,7 @@ select {
 
 button {
     padding: 5px 10px;
-    background-color: lightpink;
+    background-color: lightgrey;
     color: white;
     border: none;
     border-radius: 4px;

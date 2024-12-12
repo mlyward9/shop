@@ -1,33 +1,31 @@
-/* Reset default styles */
-* {
+/* General page styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-/* Body Styling */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
     color: #333;
-    padding: 20px;
 }
 
-/* Heading Styling */
+/* Header */
 h1 {
-    color: #333;
-    font-size: 2em;
-    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2.5rem;
+    color: #4a4a4a;
+    margin-top: 30px;
 }
 
 /* Table Section */
 .table-section {
+    margin: 30px auto;
+    max-width: 80%;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Table Styling */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -43,31 +41,48 @@ th, td {
 }
 
 th {
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #f1f1f1;
 }
 
-/* Image Styling */
-img {
+td img {
     border-radius: 5px;
-    object-fit: cover;
 }
 
-/* Action Links */
+/* Action Buttons (Edit, Delete) */
 a {
     display: inline-block;
-    margin: 5px 10px;
-    padding: 8px 12px;
     text-decoration: none;
-    background-color: #4CAF50;
-    color: white;
+    color: #fff;
+    background-color: #ffb3c1; /* Light pink color for all action buttons */
+    padding: 10px 20px;
     border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 a:hover {
-    background-color: #45a049;
+    background-color: #f4a2c4; /* Slightly darker pink on hover */
+    transform: scale(1.05);
 }
 
-a:visited {
-    color: white;
+/* Back button */
+.Back {
+    display: inline-block;
+    background-color: #ffb3c1; /* Light pink for back button */
+    color: #fff; /* White text */
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.Back:hover {
+    background-color: #f4a2c4; /* Darker pink when hovered */
+    transform: scale(1.05);
 }

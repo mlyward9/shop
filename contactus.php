@@ -1,10 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us</title>
     <style>
+        /* Navigation Styling */
+.main-nav {
+    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), 
+                url('uploads/5356.gif_wh300.gif') no-repeat center/cover;
+    padding: 20px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav ul li {
+    display: inline-block;
+}
+
+.main-nav ul li a {
+    text-decoration: none;
+    color: #614a4a;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.main-nav ul li a:hover {
+    color: white;
+    background-color: #614a4a;
+    transform: scale(1.1);
+}
+
+/* Dropdown Menu Styling */
+.dropdown {
+    position: relative;
+}
+
+.dropdown .dropbtn {
+    color: #614a4a;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.dropdown .dropbtn:hover {
+    background-color: #614a4a;
+    color: white;
+    transform: scale(1.1);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8));
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    min-width: 200px;
+    text-align: left;
+}
+
+.dropdown-content a {
+    color: #614a4a;
+    padding: 10px 20px;
+    display: block;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #614a4a;
+    color: white;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;

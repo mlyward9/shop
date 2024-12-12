@@ -35,7 +35,7 @@ table th, table td {
 }
 
 table th {
-    background-color: lightpink;
+    background-color: lightgrey;
     color: #fff;
 }
 
@@ -45,7 +45,7 @@ table tr:nth-child(even) {
 
 button {
     padding: 5px 10px;
-    background-color: lightpink;
+    background-color: lightgrey;
     color: #fff;
     border: none;
     cursor: pointer;
