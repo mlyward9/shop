@@ -135,6 +135,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
                 <?php endwhile; ?>
             </tbody>
         </table>
+        <a href="admin_homepage.php" class="Back">Back</a>
+
     </div>
 </body>
 </html>
+<style>
+           .Back {
+            display: inline-block;
+            background-color: #f8c8dc;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .Back:hover {
+            background-color: #f4a2c4;
+            transform: scale(1.05);
+        }
+</style>

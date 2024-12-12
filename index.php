@@ -36,12 +36,11 @@ ob_start();
 </head>
 <body>
     <header>
-        <h1></h1>
         <nav>
         <ul> 
         <li><a href="index.php">Home</a></li>
-            <li><a href="index.php">About</a></li>
-            <li><a href="index.php">Contact</a></li>
+            <li><a href="aboutus.php">About Us</a></li>
+            <li><a href="contactus.php">Contact</a></li>
             <li><a href="map.php">Map</a></li>
             <?php if (isset($_SESSION['user_id'])): ?>
         <!-- If the user is logged in, show the My Account dropdown -->
@@ -60,7 +59,6 @@ ob_start();
     <?php endif; ?>
     <li><a href="view_cart.php">Cart</a></li>
 </ul>
-
 <style>
 /* Dropdown Container */
 .dropdown {
@@ -98,11 +96,6 @@ ob_start();
         </nav>
     </header>
     <main>
-
-    
-        <h2></h2>
-
-
         <main>
         <section class="hero" id="home">
             <img src="uploads/download-removebg-preview.png" alt="Animated background" class="backgroundgif">
@@ -287,7 +280,7 @@ if ($conn->connect_error) {
 ob_end_flush();
 ?>
 <style>
-    /* Reviews Section Styling */
+ /* Reviews Section Styling */
 .reviews {
     background-color: #f9f9f9;
     padding: 4rem 0;
@@ -318,10 +311,11 @@ ob_end_flush();
 }
 
 .reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    display: flex;
     gap: 2rem;
-    justify-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
 }
 
 .review-item {
@@ -330,8 +324,7 @@ ob_end_flush();
     padding: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    width: 100%;
-    max-width: 400px;
+    width: 300px; /* Fixed width for reviews */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -388,7 +381,7 @@ ob_end_flush();
 }
 
 .add-review-btn:hover {
-    background-color: #614a4a;;
+    background-color: #614a4a;
 }
 
 #add-review-form {
@@ -452,5 +445,4 @@ ob_end_flush();
         font-size: 0.9rem;
     }
 }
-
 </style>

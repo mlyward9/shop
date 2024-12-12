@@ -80,6 +80,22 @@ if (!isset($_SESSION['user_id'])) {
     .main-content p {
         margin-top: 10px;
     }
+    .Back {
+            display: inline-block;
+            background-color: ##614a4a;
+            color: #pink;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .Back:hover {
+            background-color: #f4a2c4;
+            transform: scale(1.05);
+        }
 </style>
 
 
@@ -93,7 +109,7 @@ if (!isset($_SESSION['user_id'])) {
             <li><a href="create_shop.php">Create Your Shop</a></li>
             <li><a href="orders.php">Order list</a></li>
             <li><a href="add_product.php">Add Product</a></li>
-            <li><a href="user_product.php">user_edit_product</a></li>
+            <li><a href="user_product.php">User edit product</a></li>
         </ul>
     </div>
 

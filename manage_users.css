@@ -35,7 +35,7 @@ table th, table td {
 }
 
 table th {
-    background-color: #007BFF;
+    background-color: lightgrey;
     color: #fff;
 }
 
@@ -45,7 +45,7 @@ table tr:nth-child(even) {
 
 button {
     padding: 5px 10px;
-    background-color: #007BFF;
+    background-color: lightgrey;
     color: #fff;
     border: none;
     cursor: pointer;
@@ -87,7 +87,7 @@ input[type="text"], input[type="email"], input[type="date"] {
 
 button[type="submit"], button[type="button"] {
     padding: 10px 15px;
-    background-color: #28a745;
+    background-color: lightpink;
     color: white;
     border: none;
     border-radius: 4px;
@@ -99,9 +99,7 @@ button[type="button"] {
     background-color: #dc3545;
 }
 
-button[type="submit"]:hover {
-    background-color: #218838;
-}
+
 
 button[type="button"]:hover {
     background-color: #c82333;

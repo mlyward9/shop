@@ -114,5 +114,115 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_product'])) {
     </form>
 
     <a href="manage_products.php">Back to Product Management</a>
-</body>
+    </body>
 </html>
+<style>
+    /* General page styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #4a4a4a;
+    margin-top: 30px;
+}
+
+/* Form container */
+form {
+    background-color: #fff;
+    padding: 2rem;
+    margin: 30px auto;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0 5px;
+}
+
+form input[type="text"],
+form textarea,
+form input[type="number"],
+form select,
+form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+form input[type="file"] {
+    padding: 10px 0;
+}
+
+form img {
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+/* Button styling */
+button[type="submit"] {
+    background-color: #ffb3c1;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #ff99b3;
+}
+
+/* Link styling (Back to Product Management link) */
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #4a4a4a;
+    font-size: 1rem;
+}
+
+a:hover {
+    color: #ff99b3;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    form {
+        padding: 1.5rem;
+        margin: 20px;
+    }
+
+    button[type="submit"] {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}
+
+</style>

@@ -38,24 +38,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_user'])) {
     }
 }
 
-// Handle deletion of user
-if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['delete_user'])) {
-    $user_id = $_GET['delete_user'];
+// Handle status update (Active/Inactive)
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
+    $user_id = $_POST['user_id'];
+    $new_status = $_POST['status'];
 
-    // Delete user from the database
-    $delete_query = "DELETE FROM users WHERE id = ?";
-    $stmt = $conn->prepare($delete_query);
-    $stmt->bind_param('i', $user_id);
+    // Update the user's status
+    $status_query = "UPDATE users SET status = ? WHERE id = ?";
+    $stmt = $conn->prepare($status_query);
+
+    if (!$stmt) {
+        die("SQL Error: " . $conn->error);
+    }
+
+    $stmt->bind_param('si', $new_status, $user_id);
 
     if ($stmt->execute()) {
-        echo "<p>User deleted successfully.</p>";
+        echo "<p>User status updated successfully.</p>";
     } else {
-        echo "<p>Error deleting user: " . $stmt->error . "</p>";
+        echo "<p>Error updating status: " . $stmt->error . "</p>";
     }
 }
 
 // Fetch all users excluding admins
-$query = "SELECT id, lastname, firstname, middlename, email, username, birthday, created_at FROM users WHERE is_admin = 0";
+$query = "SELECT id, lastname, firstname, middlename, email, username, birthday, status, created_at FROM users WHERE is_admin = 0";
 $result = $conn->query($query);
 ?>
 <!DOCTYPE html>
@@ -65,10 +71,8 @@ $result = $conn->query($query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Users</title>
     <link rel="stylesheet" href="manage_users.css"> <!-- Link to the CSS file -->
-    
 </head>
 <body>
-    
     <div class="table-section">
         <h1>Manage Users</h1>
         <table>
@@ -79,6 +83,7 @@ $result = $conn->query($query);
                     <th>Firstname</th>
                     <th>Email</th>
                     <th>Username</th>
+                    <th>Status</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -91,15 +96,23 @@ $result = $conn->query($query);
                     <td><?php echo htmlspecialchars($user['email']); ?></td>
                     <td><?php echo htmlspecialchars($user['username']); ?></td>
                     <td>
+                        <form action="manage_users.php" method="POST" style="display: inline;">
+                            <input type="hidden" name="user_id" value="<?php echo $user['id']; ?>">
+                            <select name="status" onchange="this.form.submit()">
+                                <option value="active" <?php if ($user['status'] === 'active') echo 'selected'; ?>>Active</option>
+                                <option value="inactive" <?php if ($user['status'] === 'inactive') echo 'selected'; ?>>Inactive</option>
+                            </select>
+                            <input type="hidden" name="update_status" value="1">
+                        </form>
+                    </td>
+                    <td>
                         <button type="button" onclick="openEditForm(<?php echo htmlspecialchars(json_encode($user)); ?>)">Edit</button>
-                        <a href="manage_users.php?delete_user=<?php echo $user['id']; ?>" onclick="return confirm('Are you sure you want to delete this user?')">
-                            <button type="button">Delete</button>
-                        </a>
                     </td>
                 </tr>
                 <?php endwhile; ?>
             </tbody>
         </table>
+        <a href="admin_homepage.php" class="Back">Back</a>
     </div>
 
     <div class="form-section">

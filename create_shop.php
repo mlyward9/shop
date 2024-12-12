@@ -135,10 +135,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="file" name="valid_id" accept="image/*" required><br><br>
 
         <button type="submit">Create Shop</button>
+        <a href="index.php" class="Back">Back</a>
+
     </form>
 </body>
 </html>
 <style>
+           .Back {
+            display: inline-block;
+            background-color: #black;
+            color: #black;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .Back:hover {
+            background-color: #white;
+            transform: scale(1.05);
+        }
 
 .logo {
     padding-right:60px; /* Adds space to the left, adjust the value as needed */
