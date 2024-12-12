@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_product'])) {
         SET product_name = ?, product_description = ?, price = ?, product_image = ?, shop_id = ?
         WHERE id = ?";
     $stmt = $conn->prepare($update_query);
-    $stmt->bind_param('ssdsi', $product_name, $product_description, $price, $product_image, $shop_id, $product_id);
+    $stmt->bind_param('ssdsii', $product_name, $product_description, $price, $product_image, $shop_id, $product_id);
 
     if ($stmt->execute()) {
         echo "<p>Product updated successfully.</p>";
