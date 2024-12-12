@@ -85,7 +85,7 @@ body {
 .sidebar {
     width: 250px;
     background-color: lightgrey;
-    color: black;
+    color: white;
     padding: 20px;
     position: fixed;
     height: 100%;
@@ -99,7 +99,7 @@ body {
 .sidebar h1 {
     font-size: 1.5em;
     margin-bottom: 20px;
-    color: Black;
+    color: white;
 }
 
 .sidebar nav a {

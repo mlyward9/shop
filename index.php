@@ -445,4 +445,35 @@ ob_end_flush();
         font-size: 0.9rem;
     }
 }
+nav ul {
+    height: 70px;  /* Adjust the height to 70px */
+    display: flex;
+    justify-content: center;  /* Centers the items horizontally */
+    align-items: center;  /* Centers the items vertically */
+    list-style: none;
+    margin: 0;
+    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), url('6755b79cde71e_5356.gif_wh300.gif') no-repeat center/cover;
+    margin-bottom: 10px;
+}
+
+nav ul li {
+    margin: 0 25px;  /* Increase the margin to add more space between items */
+}
+
+nav ul li a {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+/* Hero Section */
+.hero {
+    height: 80vh;
+    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), url('6755b79cde71e_5356.gif_wh300.gif') no-repeat center/cover;
+    color: #614a4a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    
+}
 </style>
