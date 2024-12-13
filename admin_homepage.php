@@ -65,7 +65,7 @@ $order_count = $order_count_result->fetch_assoc()['total_orders'];
 </body>
 </html>
 <style>
-    /* Reset some default styles */
+/* Reset some default styles */
 * {
     margin: 0;
     padding: 0;
@@ -84,14 +84,14 @@ body {
 /* Sidebar styling */
 .sidebar {
     width: 250px;
-    background-color: lightgrey;
-    color: white;
+    background-color: lightgrey; /* Light neutral background */
+    color: #333;
     padding: 20px;
     position: fixed;
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 1000; /* Make sure the sidebar stays on top */
+    z-index: 1000; /* Ensure the sidebar stays on top */
     display: flex;
     flex-direction: column;
 }
@@ -99,18 +99,27 @@ body {
 .sidebar h1 {
     font-size: 1.5em;
     margin-bottom: 20px;
-    color: white;
+    color: #333;
 }
 
 .sidebar nav a {
     display: block;
     margin: 10px 0;
-    padding: 10px;
+    padding: 12px 15px; /* Add padding for better click area */
     text-decoration: none;
-    color: black;
-    border-radius: 5px;
+    color: #333; /* Neutral text color */
+    border: 2px solid transparent; /* Invisible border for alignment */
+    border-radius: 5px; /* Rounded edges */
     font-size: 1.1em;
-    width: 100%;
+    width: calc(100% - 30px); /* Adjust for padding */
+    text-align: center; /* Center-align text */
+    font-weight: 500; /* Semi-bold text */
+    transition: border-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+}
+
+.sidebar nav a:hover {
+    border-color: #333; /* Add a visible border on hover */
+    transform: scale(1.05); /* Slight zoom effect */
 }
 
 /* Main content area */
@@ -135,7 +144,6 @@ body {
     padding: 20px;
     text-align: center;
     width: 200px;
-
 }
 
 .stat-card h2 {
@@ -146,7 +154,7 @@ body {
 .stat-card p {
     font-size: 2em;
     font-weight: bold;
-    color: black;
+    color: #333;
 }
 
 /* Responsive Design */
@@ -168,14 +176,6 @@ body {
         width: 100%;
         margin-bottom: 20px;
     }
-
-    .logo {
-        height: 150px; /* Smaller logo on smaller screens */
-    }
-
-    .logo-img {
-        max-width: 100%;
-    }
 }
-
 </style>
+

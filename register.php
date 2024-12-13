@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,34 +23,48 @@
 <body>
     <h1>Register</h1>
     <form action="process_register.php" method="POST">
-        <label for="lastname">Last Name:</label>
-        <input type="text" id="lastname" name="lastname" required>
+    <label for="firstname">First Name:</label>
+    <input type="text" id="firstname" name="firstname" required>
 
-        <label for="firstname">First Name:</label>
-        <input type="text" id="firstname" name="firstname" required>
+    <label for="middlename">Middle Name:</label>
+    <input type="text" id="middlename" name="middlename">
 
-        <label for="middlename">Middle Name:</label>
-        <input type="text" id="middlename" name="middlename" required>
+    <label for="lastname">Last Name:</label>
+    <input type="text" id="lastname" name="lastname" required>
 
-        <label for="birthday">Birthday:</label>
-        <input type="date" name="birthday" required><br>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
 
-        <label for="username">Username:</label>
-        <input type="text" name="username" required><br>
+    <label for="birthday">Birthday:</label>
+    <input type="date" id="birthday" name="birthday" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        <button type="button" onclick="togglePassword('password')">Reveal Password</button>
+    <label for="phone_number">Phone Number:</label>
+    <input type="text" id="phone_number" name="phone_number" required><br><br>
 
-        <label for="repassword">Re-enter Password:</label>
-        <input type="password" id="repassword" name="repassword" required>
-    
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
 
-        <button type="submit">Register</button>
-    </form>
+    <label for="repassword">Re-enter Password:</label>
+    <input type="password" id="repassword" name="repassword" required>
+
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" required>
+
+    <label for="barangay">Barangay:</label>
+    <input type="text" id="barangay" name="barangay" required>
+
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" required>
+
+    <label for="province">Province:</label>
+    <input type="text" id="province" name="province" required>
+
+    <button type="submit">Register</button>
+</form>
+
 
     <script>
         // Function to toggle password visibility
@@ -65,6 +79,7 @@
     </script>
 </body>
 </html>
+
 <style>
     /* General Styles */
 * {
@@ -114,7 +129,7 @@ label {
     font-weight: 500;
     color: #555;
     margin-bottom: 8px;
-    display: block;
+    
 }
 
 input {

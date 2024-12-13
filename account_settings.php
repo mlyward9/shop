@@ -21,8 +21,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = mysqli_real_escape_string($conn, $_POST['username']);
         $birthday = mysqli_real_escape_string($conn, $_POST['birthday']);
         $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $address = mysqli_real_escape_string($conn, $_POST['address']);
+        $barangay = mysqli_real_escape_string($conn, $_POST['barangay']);
+        $city = mysqli_real_escape_string($conn, $_POST['city']);
+        $province = mysqli_real_escape_string($conn, $_POST['province']);
+        $phone_number = mysqli_real_escape_string($conn, $_POST['phone_number']); // Added phone number field
 
-        $update_query = "UPDATE users SET username = '$username', birthday = '$birthday', email = '$email' WHERE id = '$user_id'";
+        $update_query = "UPDATE users SET username = '$username', birthday = '$birthday', email = '$email', address = '$address', barangay = '$barangay', city = '$city', province = '$province', phone_number = '$phone_number' WHERE id = '$user_id'";
         if ($conn->query($update_query) === TRUE) {
             echo "Information updated successfully.";
         } else {
@@ -57,9 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,6 +107,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="email">Email:</label>
         <input type="email" name="email" value="<?php echo $user['email']; ?>" required><br>
 
+        <label for="address">Address:</label>
+        <input type="text" name="address" value="<?php echo $user['address']; ?>" required><br>
+
+        <label for="barangay">Barangay:</label>
+        <input type="text" name="barangay" value="<?php echo $user['barangay']; ?>" required><br>
+
+        <label for="city">City:</label>
+        <input type="text" name="city" value="<?php echo $user['city']; ?>" required><br>
+
+        <label for="province">Province:</label>
+        <input type="text" name="province" value="<?php echo $user['province']; ?>" required><br>
+
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" name="phone_number" value="<?php echo $user['phone_number']; ?>" required><br> <!-- New phone number field -->
+
         <button type="submit" name="update_info">Update Information</button>
     </form>
 
@@ -127,6 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </body>
 </html>
+
 <style>
         /* Center the container */
 .back-button-container {

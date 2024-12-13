@@ -63,6 +63,7 @@ if ($shops_result->num_rows > 0): ?>
                         <th>Address</th>
                         <th>Special Instructions</th>
                         <th>Update Status</th>
+                        
                     </tr>
                     <?php while ($order = $orders_result->fetch_assoc()): ?>
                         <tr>

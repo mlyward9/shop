@@ -2,18 +2,26 @@
 session_start();
 require 'db.php';
 
-// Check if user is logged in
+// Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
     echo "You must be logged in to checkout.";
     exit();
 }
 
+// Check if a product is selected for checkout
 if (!isset($_SESSION['buy_now'])) {
     echo "No product selected.";
     exit();
 }
 
 $buy_now = $_SESSION['buy_now'];
+
+// Get the user's details from the database
+$user_id = $_SESSION['user_id'];
+$query = "SELECT * FROM users WHERE id = '$user_id'";
+$result = $conn->query($query);
+$user = $result->fetch_assoc();
+
 ?>
 
 <!DOCTYPE html>
@@ -41,27 +49,31 @@ $buy_now = $_SESSION['buy_now'];
     <form action="process_checkout.php" method="POST">
         <h3>Shipping Information</h3>
         
-        <label for="recipient_name">Recipient Name:</label>
-        <input type="text" id="recipient_name" name="recipient_name" required><br><br>
+        <!-- Populate user information in the form fields -->
+        <label for="recipient_name">Recipient Name:</label><br>
+        <input type="text" id="address" name="address" value="<?php echo $user['username']; ?>" required><br><br>
+
+        <label for="phone_number">Phone Number:</label><br>
+        <input type="text" id="address" name="address" value="<?php echo $user['phone_number']; ?>" required><br><br>
 
         <label for="address">Address:</label>
-        <input type="text" id="address" name="address" required><br><br>
+        <input type="text" id="address" name="address" value="<?php echo $user['address']; ?>" required><br><br>
 
         <label for="barangay">Barangay:</label>
-        <input type="text" id="baranggay" name="baranggay" required><br><br>
+        <input type="text" id="barangay" name="barangay" value="<?php echo $user['barangay']; ?>" required><br><br>
 
         <label for="city">City:</label>
-        <input type="text" id="city" name="city" required><br><br>
+        <input type="text" id="city" name="city" value="<?php echo $user['city']; ?>" required><br><br>
 
         <label for="province">Province:</label>
-        <input type="text" id="province" name="province" required><br><br>
+        <input type="text" id="province" name="province" value="<?php echo $user['province']; ?>" required><br><br>
 
-        <label for="phone_number">Phone Number:</label>
-        <input type="text" id="phone_number" name="phone_number" required><br><br>
+        
 
         <label for="special_instructions">Special Instructions:</label>
         <textarea id="special_instructions" name="special_instructions" rows="4" cols="50"></textarea><br><br>
 
+        <!-- Hidden fields to pass product and order data -->
         <input type="hidden" name="total_amount" value="<?php echo $buy_now['total_price']; ?>">
         <input type="hidden" name="product_id" value="<?php echo $buy_now['product_id']; ?>">
         <input type="hidden" name="shop_id" value="<?php echo $buy_now['shop_id']; ?>">
@@ -74,6 +86,7 @@ $buy_now = $_SESSION['buy_now'];
 
 </body>
 </html>
+
 
 <style>
     body {

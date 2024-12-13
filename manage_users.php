@@ -156,3 +156,19 @@ $result = $conn->query($query);
     </script>
 </body>
 </html>
+<style>
+        .Back {
+            color: #ffffff; /* White text color */
+            background-color: #ffb6c1; /* Light pink background color */
+            text-decoration: none; /* Remove underline */
+            padding: 10px 20px; /* Add some padding */
+            border-radius: 5px; /* Round the edges */
+            font-family: Arial, sans-serif; /* Set font */
+            font-size: 16px; /* Adjust font size */
+            transition: background-color 0.3s ease; /* Smooth hover effect */
+        }
+
+        .Back:hover {
+            background-color: #ff91a4; /* Darker pink on hover */
+        }
+    </style>
