@@ -48,3 +48,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #444;
+        }
+        .go-to-login {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #ffb6c1; /* Light pink color */
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .go-to-login:hover {
+            color: #f8a6b2; /* Slightly darker pink on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Registration Successful!</h1>
+        <p>Thank you for registering. You can now log in.</p>
+        <a href="login.php" class="go-to-login">Go to Login</a>
+    </div>
+
+</body>
+</html>

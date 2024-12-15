@@ -107,7 +107,7 @@ $total = 0; // Variable to calculate total price
 /* General Navigation Bar Styling */
 .main-nav {
     background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), 
-                url('uploads/5356.gif_wh300.gif') no-repeat center/cover; /* Add the GIF */
+                url('6755b79cde71e_5356.gif_wh300.gif') no-repeat center/cover; /* Add the GIF */
     padding: 20px 30px;
     position: sticky;
     top: 0;

@@ -110,6 +110,8 @@ if (!isset($_SESSION['user_id'])) {
             <li><a href="orders.php">Order list</a></li>
             <li><a href="add_product.php">Add Product</a></li>
             <li><a href="user_product.php">User edit product</a></li>
+            <a href="index.php" class="Back">Back</a>
+
         </ul>
     </div>
 

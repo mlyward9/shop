@@ -11,46 +11,48 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 
 // Fetch all shops owned by the logged-in user
-$shops_query = "
-    SELECT * FROM shops WHERE user_id = ?";
+$shops_query = "SELECT * FROM shops WHERE user_id = ?";
 $stmt = $conn->prepare($shops_query);
 $stmt->bind_param('i', $user_id);
 $stmt->execute();
 $shops_result = $stmt->get_result();
 
-// Handle the order status update (if it's the "Order Received" action)
-if (isset($_POST['order_id']) && isset($_POST['status']) && $_POST['status'] == 'Received') {
-    $order_id = $_POST['order_id'];
-    $update_query = "UPDATE orders SET status = 'Received' WHERE id = ?";
+// Handle the order status update
+$status_updated = false;
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_id'], $_POST['status'])) {
+    $order_id = (int)$_POST['order_id'];
+    $status = $_POST['status'];
+
+    $update_query = "UPDATE orders SET status = ? WHERE id = ?";
     $stmt_update = $conn->prepare($update_query);
-    $stmt_update->bind_param('i', $order_id);
-    $stmt_update->execute();
-    $status_updated = true;  // Indicate that the status was updated to "Received"
+    $stmt_update->bind_param('si', $status, $order_id);
+    if ($stmt_update->execute()) {
+        $status_updated = true;
+    }
 }
 
 if ($shops_result->num_rows > 0): ?>
     <h1>Your Shops and Orders</h1>
-    
     <?php while ($shop = $shops_result->fetch_assoc()): ?>
         <div class="shop-section">
-            <h2><?php echo $shop['shop_name']; ?></h2>
-            <p><strong>Shop Address:</strong> <?php echo $shop['shop_address']; ?></p>
+            <h2><?php echo htmlspecialchars($shop['shop_name']); ?></h2>
+            <p><strong>Shop Address:</strong> <?php echo htmlspecialchars($shop['shop_address']); ?></p>
 
             <?php
-            // Fetch orders for this shop by matching the products in the shop and joining with orders
+            // Fetch orders for this shop
             $orders_query = "
                 SELECT o.id AS order_id, o.order_date, o.total_amount, o.status, 
-                       o.recipient_name, o.address, o.baranggay, o.city, o.province, 
+                       o.recipient_name, o.address, o.barangay, o.city, o.province, 
                        o.phone_number, o.special_instructions
                 FROM orders o
                 JOIN order_items oi ON o.id = oi.order_id
                 JOIN products p ON oi.product_id = p.id
-                WHERE p.shop_id = ?"; // Match the shop's id to fetch the orders for this shop
+                WHERE p.shop_id = ?";
             $stmt_orders = $conn->prepare($orders_query);
             $stmt_orders->bind_param('i', $shop['id']);
             $stmt_orders->execute();
             $orders_result = $stmt_orders->get_result();
-            
+
             if ($orders_result->num_rows > 0): ?>
                 <h3>Orders</h3>
                 <table>
@@ -65,56 +67,54 @@ if ($shops_result->num_rows > 0): ?>
                         <th>Update Status</th>
                     </tr>
                     <?php while ($order = $orders_result->fetch_assoc()): ?>
-                        <tr>
-                            <td><a href="view_order.php?order_id=<?php echo $order['order_id']; ?>"><?php echo $order['order_id']; ?></a></td>
-                            <td><?php echo $order['order_date']; ?></td>
-                            <td>$<?php echo number_format($order['total_amount'], 2); ?></td>
-                            <td><?php echo $order['status']; ?></td>
-                            <td><?php echo $order['recipient_name']; ?></td>
-                            <td>
-                                <?php
-                                echo $order['address'] . ', ' . $order['baranggay'] . ', ' . 
-                                     $order['city'] . ', ' . $order['province'] . '<br>';
-                                echo 'Phone: ' . $order['phone_number'];
-                                ?>
-                            </td>
-                            <td><?php echo $order['special_instructions']; ?></td>
-                            <td>
-                                <!-- Form to update order status -->
-                                <form method="POST" action="">
-                                    <input type="hidden" name="order_id" value="<?php echo $order['order_id']; ?>">
-                                    <select name="status">
-                                        <option value="Pending" <?php echo $order['status'] == 'Pending' ? 'selected' : ''; ?>>Pending</option>
-                                        <option value="Processing" <?php echo $order['status'] == 'Processing' ? 'selected' : ''; ?>>Processing</option>
-                                        <option value="Shipped" <?php echo $order['status'] == 'Shipped' ? 'selected' : ''; ?>>Shipped</option>
-                                        <option value="Out for Delivery" <?php echo $order['status'] == 'Out for Delivery' ? 'selected' : ''; ?>>Out for Delivery</option>
-                                        <option value="Delivered" <?php echo $order['status'] == 'Delivered' ? 'selected' : ''; ?>>Delivered</option>
-                                        <option value="Cancelled" <?php echo $order['status'] == 'Cancelled' ? 'selected' : ''; ?>>Cancelled</option>
-                                        <option value="On Hold" <?php echo $order['status'] == 'On Hold' ? 'selected' : ''; ?>>On Hold</option>
-                                        <option value="Returned" <?php echo $order['status'] == 'Returned' ? 'selected' : ''; ?>>Returned</option>
-                                        <option value="Refunded" <?php echo $order['status'] == 'Refunded' ? 'selected' : ''; ?>>Refunded</option>
-                                        <option value="Received" <?php echo $order['status'] == 'Received' ? 'selected' : ''; ?>>Received</option>
-                                    </select>
-                                    <button type="submit">Update Status</button>
-                                </form>
-
-                                <!-- Notification for order received -->
-                                <?php if (isset($status_updated) && $status_updated && $order['status'] == 'Received'): ?>
-                                    <p style="color: green; font-weight: bold;">Order Received by Customer</p>
-                                <?php endif; ?>
-                            </td>
-                        </tr>
+                        <?php if (is_array($order) && isset($order['status'])): ?>
+                            <tr>
+                                <td><a href="view_order.php?order_id=<?php echo $order['order_id']; ?>">
+                                    <?php echo htmlspecialchars($order['order_id']); ?></a></td>
+                                <td><?php echo htmlspecialchars($order['order_date']); ?></td>
+                                <td>$<?php echo number_format($order['total_amount'], 2); ?></td>
+                                <td>
+                                    <?php echo htmlspecialchars($order['status']); ?>
+                                    <?php if ($order['status'] === 'Received'): ?>
+                                        <p style="color: green; font-weight: bold;">Order Received by Customer</p>
+                                    <?php endif; ?>
+                                </td>
+                                <td><?php echo htmlspecialchars($order['recipient_name']); ?></td>
+                                <td>
+                                    <?php echo htmlspecialchars($order['address'] . ', ' . $order['barangay'] . ', ' . $order['city'] . ', ' . $order['province']); ?><br>
+                                    Phone: <?php echo htmlspecialchars($order['phone_number']); ?>
+                                </td>
+                                <td><?php echo htmlspecialchars($order['special_instructions']); ?></td>
+                                <td>
+                                    <form method="POST" action="">
+                                        <input type="hidden" name="order_id" value="<?php echo $order['order_id']; ?>">
+                                        <select name="status">
+                                            <?php
+                                            $statuses = ['Pending', 'Processing', 'Shipped', 'Out for Delivery', 'Delivered', 'Cancelled', 'On Hold', 'Returned', 'Refunded', 'Received'];
+                                            foreach ($statuses as $status): ?>
+                                                <option value="<?php echo $status; ?>" <?php echo $order['status'] === $status ? 'selected' : ''; ?>>
+                                                    <?php echo $status; ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                        <button type="submit">Update Status</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php endif; ?>
                     <?php endwhile; ?>
                 </table>
             <?php else: ?>
-                <p>No orders found for this shop.</p>
+                <p class="no-orders">No orders found for this shop.</p>
             <?php endif; ?>
-            <a href="index.php" class="Back">Home</a>
         </div>
     <?php endwhile; ?>
 <?php else: ?>
     <p>You do not own any shops.</p>
 <?php endif; ?>
+
+<a href="index.php" class="Back">Back</a>
+
 
 <style>
     /* Center the container */
@@ -274,26 +274,4 @@ if ($shops_result->num_rows > 0): ?>
             padding: 20px;
         }
 
-        h1 {
-            font-size: 2rem;
-        }
-
-        h2 {
-            font-size: 1.6rem;
-        }
-
-        h3 {
-            font-size: 1.3rem;
-        }
-
-        table td, table th {
-            padding: 8px;
-        }
-
-        button, a.button-link {
-            padding: 10px 20px;
-            font-size: 0.9rem;
-        }
-    }
-
-</style>
+        h1

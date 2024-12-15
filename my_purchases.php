@@ -14,7 +14,7 @@ $user_id = $_SESSION['user_id'];
 // Fetch the orders made by the logged-in user
 $orders_query = "
     SELECT o.id AS order_id, o.order_date, o.total_amount, o.status, o.recipient_name, 
-           o.address, o.baranggay, o.city, o.province, o.phone_number, o.special_instructions
+           o.address, o.barangay, o.city, o.province, o.phone_number, o.special_instructions
     FROM orders o
     WHERE o.user_id = ? ORDER BY o.order_date DESC
 ";
@@ -76,7 +76,7 @@ if (isset($_GET['received_order_id'])) {
                             <td><?php echo htmlspecialchars($order['recipient_name']); ?></td>
                             <td>
                                 <?php 
-                                echo $order['address'] . ', ' . $order['baranggay'] . ', ' . 
+                                echo $order['address'] . ', ' . $order['barangay'] . ', ' . 
                                      $order['city'] . ', ' . $order['province'] . '<br>';
                                 echo 'Phone: ' . $order['phone_number']; 
                                 ?>
@@ -85,7 +85,7 @@ if (isset($_GET['received_order_id'])) {
                             <td>
                                 <a href="view_order.php?order_id=<?php echo $order['order_id']; ?>">View</a>
                                 <?php if ($order['status'] != 'Received'): ?>
-                                    <a href="my_purchases.php?received_order_id=<?php echo $order['order_id']; ?>" class="received-btn">Order Received</a>
+                                    <a href="my_purchases.php?received_order_id=<?php echo $order['order_id']; ?>" class="received-btn">Received</a>
                                 <?php endif; ?>
                             </td>
                         </tr>

@@ -39,7 +39,7 @@ $product_result = $stmt->get_result();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="view_shop.css"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="view_shop.css">
     <title>View Shop</title>
 </head>
 <body>
@@ -73,7 +73,11 @@ $product_result = $stmt->get_result();
         <p><strong>Address:</strong> <?php echo $shop['shop_address']; ?></p>
         <p><strong>Email:</strong> <a href="mailto:<?php echo $shop['shop_email']; ?>"><?php echo $shop['shop_email']; ?></a></p>
         <p><strong>Phone:</strong> <?php echo $shop['shop_phone']; ?></p>
+
+        <!-- Start Conversation Button -->
+        <button id="start-conversation-btn" onclick="startConversation(<?php echo $shop['user_id']; ?>)">Start Conversation</button>
     </div>
+
     <a href="index.php" class="Back">Back to Home</a>
 
     <div class="products-container">
@@ -86,13 +90,11 @@ $product_result = $stmt->get_result();
                         <h3><?php echo $product['product_name']; ?></h3>
                         <p><?php echo $product['product_description']; ?></p>
                         <p><strong>Price:</strong> $<?php echo number_format($product['price'], 2); ?></p>
-                        <!-- Add to Cart Button -->
                         <form action="add_to_cart.php" method="POST">
                             <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
                             <input type="hidden" name="shop_id" value="<?php echo $shop_id; ?>">
                             <button type="submit">Add to Cart</button>
                         </form>
-                        <!-- Buy Now Button -->
                         <form action="buy_now.php" method="POST">
                             <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
                             <input type="hidden" name="shop_id" value="<?php echo $shop_id; ?>">
@@ -106,13 +108,53 @@ $product_result = $stmt->get_result();
             <p>No products found for this shop.</p>
         <?php endif; ?>
     </div>
+
+    
+ <script>
+function startConversation(seller_id) {
+    let buyer_id = <?php echo $_SESSION['user_id']; ?>; // Ensure buyer_id is properly passed
+
+    if (!buyer_id || !seller_id) {
+        alert("Missing buyer or seller ID.");
+        return;
+    }
+
+    // Send AJAX request to start a conversation
+    fetch('start_conversation.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            buyer_id: buyer_id, // Send buyer's ID
+            seller_id: seller_id // Send seller's ID
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data); // Log the response from the server
+        if (data.success) {
+            window.location.href = 'chat.php?conversation_id=' + data.conversation_id;  // Redirect to chat page
+        } else {
+            alert('Failed to start the conversation. Reason: ' + data.message); // Show the error message
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error); // Log any JavaScript errors
+        alert('An error occurred while starting the conversation.');
+    });
+}
+</script>
+
+
 </body>
 </html>
+
 
 <style>
     .main-nav {
     background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), 
-                url('uploads/5356.gif_wh300.gif') no-repeat center/cover; /* Add the GIF */
+                url('6755b79cde71e_5356.gif_wh300.gif') no-repeat center/cover; /* Add the GIF */
     padding: 20px 30px;
     position: sticky;
     top: 0;

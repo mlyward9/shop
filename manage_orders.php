@@ -18,7 +18,7 @@ $query = "
         s.shop_name, 
         o.recipient_name, 
         o.address, 
-        o.baranggay, 
+        o.barangay, 
         o.city, 
         o.province, 
         o.phone_number, 
@@ -103,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
                         <td>
                             <?php 
                             echo htmlspecialchars($order['address']) . ', ' . 
-                                 htmlspecialchars($order['baranggay']) . ', ' . 
+                                 htmlspecialchars($order['barangay']) . ', ' . 
                                  htmlspecialchars($order['city']) . ', ' . 
                                  htmlspecialchars($order['province']);
                             ?>

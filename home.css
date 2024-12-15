@@ -34,7 +34,7 @@ nav ul {
     align-items: center;  /* Centers the items vertically */
     list-style: none;
     margin: 0;
-    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), url('uploads/5356.gif_wh300.gif') no-repeat center/cover;
+    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), url('6755b79cde71e_5356.gif_wh300.gif') no-repeat center/cover;
     margin-bottom: 10px;
 }
 
@@ -49,7 +49,7 @@ nav ul li a {
 /* Hero Section */
 .hero {
     height: 80vh;
-    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), url('uploads/5356.gif_wh300.gif') no-repeat center/cover;
+    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), url('6755b79cde71e_5356.gif_wh300.gif') no-repeat center/cover;
     color: #614a4a;
     display: flex;
     align-items: center;

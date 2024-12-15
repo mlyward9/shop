@@ -100,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Create Shop</title>
 </head>
 <div class="logo">
-            <img src="uploads/download-removebg-preview.png" alt="Logo" class="logo-img">
+            <img src="download-removebg-preview.png" alt="Logo" class="logo-img">
         </div>
 <body>
     <h1></h1>

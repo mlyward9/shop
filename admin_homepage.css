@@ -11,15 +11,15 @@ body {
     display: flex;
     min-height: 100vh;
     background-color: #f4f4f9;
-    color: #333;
+    color: white;
     margin: 0;
 }
 
 /* Sidebar styling */
 .sidebar {
     width: 250px;
-    background-color: lightgrey;
-    color: white;
+    background-color: black;
+    color: Black;
     padding: 20px;
     position: fixed;
     height: 100%;
@@ -28,6 +28,7 @@ body {
     z-index: 1000; /* Make sure the sidebar stays on top */
     display: flex;
     flex-direction: column;
+    background-image: 'url(uploads/gradient-abstract-wireframe-background_23-2149009903.avif)';
 }
 
 .sidebar h1 {

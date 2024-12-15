@@ -80,7 +80,7 @@
         .back-link {
             text-decoration: none;
             color: #fff;
-            background-color: #614a4a;
+            background-color: lightpink;
             padding: 10px 20px;
             border-radius: 5px;
             font-size: 16px;

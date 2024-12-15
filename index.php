@@ -100,7 +100,7 @@ ob_start();
     <main>
         <main>
         <section class="hero" id="home">
-            <img src="uploads/download-removebg-preview.png" alt="Animated background" class="backgroundgif">
+            <img src="download-removebg-preview.png" alt="Animated background" class="backgroundgif">
             <div class="hero-content">
                 <h1>Welcome to Euthalia Fancies!</h1>
                 <?php 
@@ -125,7 +125,7 @@ ob_start();
             <p>Our mission is to create memorable experiences for our customers by offering exceptional flower shops and outstanding customer service. Whether you're celebrating a special event or just brightening someone's day, we’re here to help you express your emotions with flowers.</p>
         </div>
         <div class="about-image">
-            <img src="uploads/download.jpg" alt="Flower Shop">
+            <img src="download.jpg" alt="Flower Shop">
         </div>
     </div>
 </section>
@@ -446,5 +446,36 @@ ob_end_flush();
     .reviewer p {
         font-size: 0.9rem;
     }
+}
+nav ul {
+    height: 70px;  /* Adjust the height to 70px */
+    display: flex;
+    justify-content: center;  /* Centers the items horizontally */
+    align-items: center;  /* Centers the items vertically */
+    list-style: none;
+    margin: 0;
+    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), url('6755b79cde71e_5356.gif_wh300.gif') no-repeat center/cover;
+    margin-bottom: 10px;
+}
+
+nav ul li {
+    margin: 0 25px;  /* Increase the margin to add more space between items */
+}
+
+nav ul li a {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+/* Hero Section */
+.hero {
+    height: 80vh;
+    background: linear-gradient(180deg, #dda2b4cc, rgba(255, 255, 255, 0.8)), url('6755b79cde71e_5356.gif_wh300.gif') no-repeat center/cover;
+    color: #614a4a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    
 }
 </style>
