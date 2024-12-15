@@ -14,7 +14,7 @@
             </p>
         </div>
         <div class="about-image">
-            <img src="uploads/download.jpg" alt="Flower Shop">
+            <img src="download.jpg" alt="Flower Shop">
         </div>
     </div>
     <a href="index.php" class="Back">Back</a>

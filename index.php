@@ -98,7 +98,7 @@ ob_start();
     <main>
         <main>
         <section class="hero" id="home">
-            <img src="uploads/download-removebg-preview.png" alt="Animated background" class="backgroundgif">
+            <img src="download-removebg-preview.png" alt="Animated background" class="backgroundgif">
             <div class="hero-content">
                 <h1>Welcome to Euthalia Fancies!</h1>
                 <?php 
@@ -123,7 +123,7 @@ ob_start();
             <p>Our mission is to create memorable experiences for our customers by offering exceptional flower shops and outstanding customer service. Whether you're celebrating a special event or just brightening someone's day, we’re here to help you express your emotions with flowers.</p>
         </div>
         <div class="about-image">
-            <img src="uploads/download.jpg" alt="Flower Shop">
+            <img src="download.jpg" alt="Flower Shop">
         </div>
     </div>
 </section>
