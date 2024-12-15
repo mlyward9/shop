@@ -51,8 +51,10 @@ ob_start();
             <div class="dropdown-content">
                 <a href="account_settings.php">Account Settings</a>
                 <a href="my_purchases.php">My Purchases</a>
+                <a href="address.php">Address</a> <!-- New item added -->
             </div>
         </li>
+
     <?php else: ?>
         <!-- If the user is not logged in, show the Login link -->
         <li><a href="login.php">Login</a></li>

@@ -22,6 +22,11 @@ $query = "SELECT * FROM users WHERE id = '$user_id'";
 $result = $conn->query($query);
 $user = $result->fetch_assoc();
 
+// Fetch user's saved addresses
+$address_query = "SELECT * FROM addresses WHERE user_id = '$user_id'";
+$address_result = $conn->query($address_query);
+$addresses = $address_result->fetch_all(MYSQLI_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +36,17 @@ $user = $result->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
     <title>Buy Now Checkout</title>
+    <script>
+        // JavaScript function to autofill the form fields based on selected address
+        function autofillAddress(address) {
+            document.getElementById('address').value = address.address_line; // Use 'address_line'
+            document.getElementById('barangay').value = address.barangay;
+            document.getElementById('city').value = address.city;
+            document.getElementById('province').value = address.province;
+            document.getElementById('phone_number').value = address.phone_number; // Optional: Autofill phone
+        }
+
+    </script>
 </head>
 <body>
 
@@ -44,40 +60,59 @@ $user = $result->fetch_assoc();
     </div>
 </div>
 
+<!-- Address Selection -->
+<div class="address-selection">
+    <h3>Select a Saved Address</h3>
+    <?php if (count($addresses) > 0): ?>
+        <select id="saved-addresses" onchange="autofillAddress(JSON.parse(this.value))">
+            <option value="">-- Select an Address --</option>
+            <?php foreach ($addresses as $address): ?>
+                <option value='<?php echo json_encode($address); ?>'>
+                <?php echo $address['address_line'] . ', ' . $address['barangay'] . ', ' . $address['city'] . ', ' . $address['province']; ?>
+            </option>
+
+
+            <?php endforeach; ?>
+        </select>
+    <?php else: ?>
+        <p>No saved addresses found. Please enter a new address.</p>
+    <?php endif; ?>
+</div>
+
 <!-- Shipping Form -->
 <div class="shipping-form">
     <form action="process_checkout.php" method="POST">
-    <h3>Shipping Information</h3>
-    
-    <label for="recipient_name">Recipient Name:</label><br>
-    <input type="text" id="recipient_name" name="recipient_name" value="<?php echo $user['username']; ?>" required><br><br>
+        <h3>Shipping Information</h3>
+        
+        <label for="recipient_name">Recipient Name:</label><br>
+        <input type="text" id="recipient_name" name="recipient_name" value="<?php echo $user['username']; ?>" required><br><br>
 
-    <label for="phone_number">Phone Number:</label><br>
-    <input type="text" id="phone_number" name="phone_number" value="<?php echo $user['phone_number']; ?>" required><br><br>
+        <label for="phone_number">Phone Number:</label><br>
+        <input type="text" id="phone_number" name="phone_number" value="<?php echo $user['phone_number']; ?>" required><br><br>
 
-    <label for="address">Address:</label>
-    <input type="text" id="address" name="address" value="<?php echo $user['address']; ?>" required><br><br>
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" value="<?php echo $user['address']; ?>" required><br><br>
 
-    <label for="barangay">Barangay:</label>
-    <input type="text" id="barangay" name="barangay" value="<?php echo $user['barangay']; ?>" required><br><br>
+        <label for="barangay">Barangay:</label>
+        <input type="text" id="barangay" name="barangay" value="<?php echo $user['barangay']; ?>" required><br><br>
 
-    <label for="city">City:</label>
-    <input type="text" id="city" name="city" value="<?php echo $user['city']; ?>" required><br><br>
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" value="<?php echo $user['city']; ?>" required><br><br>
 
-    <label for="province">Province:</label>
-    <input type="text" id="province" name="province" value="<?php echo $user['province']; ?>" required><br><br>
+        <label for="province">Province:</label>
+        <input type="text" id="province" name="province" value="<?php echo $user['province']; ?>" required><br><br>
 
-    <label for="special_instructions">Special Instructions:</label>
-    <textarea id="special_instructions" name="special_instructions" rows="4" cols="50"></textarea><br><br>
+        <label for="special_instructions">Special Instructions:</label>
+        <textarea id="special_instructions" name="special_instructions" rows="4" cols="50"></textarea><br><br>
 
-    <!-- Hidden fields -->
-    <input type="hidden" name="total_amount" value="<?php echo $buy_now['total_price']; ?>">
-    <input type="hidden" name="product_id" value="<?php echo $buy_now['product_id']; ?>">
-    <input type="hidden" name="shop_id" value="<?php echo $buy_now['shop_id']; ?>">
-    <input type="hidden" name="quantity" value="<?php echo $buy_now['quantity']; ?>">
+        <!-- Hidden fields -->
+        <input type="hidden" name="total_amount" value="<?php echo $buy_now['total_price']; ?>">
+        <input type="hidden" name="product_id" value="<?php echo $buy_now['product_id']; ?>">
+        <input type="hidden" name="shop_id" value="<?php echo $buy_now['shop_id']; ?>">
+        <input type="hidden" name="quantity" value="<?php echo $buy_now['quantity']; ?>">
 
-    <button type="submit">Place Order</button>
-</form>
+        <button type="submit">Place Order</button>
+    </form>
 </div>
 
 </body>

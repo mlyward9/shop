@@ -12,7 +12,8 @@ $user_id = $_SESSION['user_id'];
 
 // Fetch cart items for the logged-in user
 $cart_query = "
-    SELECT c.id AS cart_id, p.product_name, p.product_image, p.price, c.quantity, s.shop_name
+    SELECT c.id AS cart_id, p.id AS product_id, p.product_name, p.product_image, 
+           p.price, c.quantity, s.id AS shop_id, s.shop_name
     FROM cart c
     JOIN products p ON c.product_id = p.id
     JOIN shops s ON c.shop_id = s.id
@@ -23,6 +24,13 @@ $stmt->execute();
 $cart_result = $stmt->get_result();
 
 $total = 0; // Variable to calculate total price
+
+// Fetch saved addresses of the user
+$address_query = "SELECT id, address_line, barangay, city, province, phone_number FROM addresses WHERE user_id = ?";
+$stmt_address = $conn->prepare($address_query);
+$stmt_address->bind_param('i', $user_id);
+$stmt_address->execute();
+$address_result = $stmt_address->get_result();
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +40,16 @@ $total = 0; // Variable to calculate total price
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
     <title>Checkout</title>
+    <script>
+        // Autofill form fields when selecting an address
+        function autofillAddress(address) {
+            document.getElementById('address').value = address.address_line;
+            document.getElementById('barangay').value = address.barangay;
+            document.getElementById('city').value = address.city;
+            document.getElementById('province').value = address.province;
+            document.getElementById('phone_number').value = address.phone_number;
+        }
+    </script>
 </head>
 <body>
 
@@ -62,10 +80,25 @@ $total = 0; // Variable to calculate total price
     <div class="cart-total">
         <h3>Total: $<?php echo number_format($total, 2); ?></h3>
     </div>
+    
 
     <!-- Shipping Form -->
     <form action="process_checkout.php" method="POST">
         <h3>Shipping Information</h3>
+
+        <!-- Dropdown to Select Address -->
+        <label for="address_select">Select Address:</label>
+        <select id="address_select" onchange="autofillAddress(JSON.parse(this.value))">
+            <option value="">-- Select an Address --</option>
+            <?php while ($address = $address_result->fetch_assoc()): ?>
+                <option value='<?php echo json_encode($address); ?>'>
+                    <?php echo $address['address_line'] . ', ' . $address['barangay'] . ', ' . $address['city'] . ', ' . $address['province']; ?>
+                </option>
+            <?php endwhile; ?>
+        </select>
+        <br><br>
+
+        <!-- Form Fields -->
         <label for="recipient_name">Recipient Name:</label>
         <input type="text" id="recipient_name" name="recipient_name" required><br><br>
 
@@ -73,7 +106,7 @@ $total = 0; // Variable to calculate total price
         <input type="text" id="address" name="address" required><br><br>
 
         <label for="baranggay">Barangay:</label>
-        <input type="text" id="baranggay" name="baranggay" required><br><br>
+        <input type="text" id="barangay" name="barangay" required><br><br>
 
         <label for="city">City:</label>
         <input type="text" id="city" name="city" required><br><br>
@@ -97,6 +130,7 @@ $total = 0; // Variable to calculate total price
 
 </body>
 </html>
+
 
 <style>
     /* Global Styles */
