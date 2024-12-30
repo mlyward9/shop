@@ -49,7 +49,7 @@ $addresses = $address_result->fetch_all(MYSQLI_ASSOC);
     </script>
 </head>
 <body>
-
+<?php echo $buy_now['shop_id']; ?>
 <h1>Buy Now Checkout</h1>
 
 <div class="product-details">
@@ -104,7 +104,7 @@ $addresses = $address_result->fetch_all(MYSQLI_ASSOC);
 
         <label for="special_instructions">Special Instructions:</label>
         <textarea id="special_instructions" name="special_instructions" rows="4" cols="50"></textarea><br><br>
-
+        
         <!-- Hidden fields -->
         <input type="hidden" name="total_amount" value="<?php echo $buy_now['total_price']; ?>">
         <input type="hidden" name="product_id" value="<?php echo $buy_now['product_id']; ?>">
